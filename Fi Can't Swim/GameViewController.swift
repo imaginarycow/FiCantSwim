@@ -4,33 +4,26 @@
 //
 //  Created by beltranmc on 2/17/17.
 //  Copyright © 2017 Ramiro Beltran. All rights reserved.
-// test for git
-//test
+//
 
 import UIKit
 import SpriteKit
-import GameplayKit
 
 class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
-            }
+        let scene = MenuScene(size: view.bounds.size)
+        let SKView = view as! SKView
             
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
+        SKView.ignoresSiblingOrder = true
+        SKView.showsFPS = true
+        SKView.showsNodeCount = true
+        
+        SKView.presentScene(scene)
+        printFonts()
+        
     }
 
     override var shouldAutorotate: Bool {
@@ -39,7 +32,7 @@ class GameViewController: UIViewController {
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
+            return .portrait
         } else {
             return .all
         }
@@ -52,5 +45,15 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func printFonts() {
+        let fontFamilyNames = UIFont.familyNames
+        for familyName in fontFamilyNames {
+            print("------------------------------")
+            print("Font Family Name = [\(familyName)]")
+            let names = UIFont.fontNames(forFamilyName: familyName)
+            print("Font Names = [\(names)]")
+        }
     }
 }
