@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import SpriteKit
+
+
+let TitlePosition = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height * 0.9)
+let BackButtonPosition = CGPoint(x: UIScreen.main.bounds.width * 0.1, y: UIScreen.main.bounds.height * 0.9)

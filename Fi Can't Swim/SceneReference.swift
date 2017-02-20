@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameSceneReference: SKScene {
+class SceneReference: SKScene {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -36,6 +36,7 @@ class GameSceneReference: SKScene {
                                               SKAction.removeFromParent()]))
         }
     }
+    
     
     
     func touchDown(atPoint pos : CGPoint) {

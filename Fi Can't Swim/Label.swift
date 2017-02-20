@@ -18,12 +18,21 @@ class Label : SKLabelNode {
         self.fontColor = fontColor
         self.fontSize = fontSize
         self.fontName = fontName
-        self.zPosition = 2
+        self.zPosition = 10
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+class BackButton : Label {
     
+    init(label: String = "Back", fontColor: UIColor = .blue, fontSize: CGFloat = 15.0) {
+        super.init(label: label, fontColor: fontColor, fontSize: fontSize, fontName: defaultFont)
+    }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
