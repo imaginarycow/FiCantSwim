@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import SpriteKit
+
+var deviceWidth = CGFloat(UIScreen.main.bounds.width)
+var deviceHeight = CGFloat(UIScreen.main.bounds.height)
+var scale = 1.0
+
+func setScale() {
+    
+}

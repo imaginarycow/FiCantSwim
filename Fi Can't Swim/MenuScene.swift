@@ -40,8 +40,7 @@ class MenuScene: SKScene {
             
             if playButton.contains(location){
                 //go to game scene
-                let nextScene = GameScene()
-                sceneTransition(initScene: self, nextScene: nextScene)
+                sceneTransition(initScene: self, nextScene: MapScene())
             }
             
             if settingsButton.contains(location){
