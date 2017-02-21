@@ -184,6 +184,7 @@
 				TargetAttributes = {
 					14077DC71E5738BF00AF3F5B = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = VHQ88CT5TL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -364,7 +365,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VHQ88CT5TL;
 				INFOPLIST_FILE = "Fi Can't Swim/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idratherbcoding.Fi-Can-t-Swim";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -376,7 +379,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VHQ88CT5TL;
 				INFOPLIST_FILE = "Fi Can't Swim/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idratherbcoding.Fi-Can-t-Swim";
 				PRODUCT_NAME = "$(TARGET_NAME)";

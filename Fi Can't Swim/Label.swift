@@ -8,7 +8,8 @@
 
 import SpriteKit
 
-let defaultFont = "CourierNewPS-BoldMT"
+//var defaultFont = "CourierNewPS-BoldMT"
+var defaultFont = "Noteworthy-Bold"
 
 class Label : SKLabelNode {
     

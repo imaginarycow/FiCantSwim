@@ -35,12 +35,13 @@ class MenuScene: SKScene {
     }
     
     func loadBackground() {
-        let width = UIImage(named: "Fi_Character.png")?.size.width
-        let height = UIImage(named: "Fi_Character.png")?.size.height
+        
+        let height = deviceHeight * 0.7
+        let width = deviceHeight / ratio
         let fi = SKSpriteNode(imageNamed: "Fi_Character.png")
         addChild(fi)
         fi.position = CGPoint(x: centerX, y: centerY)
-        fi.size = CGSize(width: width!, height: height!)
+        fi.size = CGSize(width: width, height: height)
         
         let water = SKSpriteNode(imageNamed: "water.png")
         water.size = CGSize(width: deviceWidth * 2, height: deviceHeight / 5)
