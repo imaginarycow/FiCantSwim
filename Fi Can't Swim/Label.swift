@@ -12,7 +12,7 @@ let defaultFont = "CourierNewPS-BoldMT"
 
 class Label : SKLabelNode {
     
-    init(label:String, fontColor:UIColor, fontSize: CGFloat, fontName: String = defaultFont) {
+    init(label:String, fontColor:UIColor = fiColor, fontSize: CGFloat, fontName: String = defaultFont) {
         super.init()
         self.text = label
         self.fontColor = fontColor
@@ -28,7 +28,7 @@ class Label : SKLabelNode {
 
 class BackButton : Label {
     
-    init(label: String = "Back", fontColor: UIColor = .blue, fontSize: CGFloat = 15.0) {
+    init(label: String = "Back", fontColor: UIColor = fiColor, fontSize: CGFloat = 15.0) {
         super.init(label: label, fontColor: fontColor, fontSize: fontSize, fontName: defaultFont)
     }
     

@@ -21,6 +21,8 @@
 		14077DF31E5763D700AF3F5B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14077DF21E5763D700AF3F5B /* Constants.swift */; };
 		B568D6131E5BE19F00E0E79F /* MapConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B568D6121E5BE19F00E0E79F /* MapConnector.swift */; };
 		B568D6151E5BF2AD00E0E79F /* DegToRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = B568D6141E5BF2AD00E0E79F /* DegToRadians.swift */; };
+		B5F6C7AE1E5C0960007BBB88 /* Fi_Character.png in Resources */ = {isa = PBXBuildFile; fileRef = B5F6C7AD1E5C0960007BBB88 /* Fi_Character.png */; };
+		B5F6C7B01E5C0BC5007BBB88 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = B5F6C7AF1E5C0BC5007BBB88 /* water.png */; };
 		B5FC4AD71E5A52C000339FD5 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC4AD61E5A52C000339FD5 /* SettingsScene.swift */; };
 		B5FC4AD91E5A5C4700339FD5 /* SceneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC4AD81E5A5C4700339FD5 /* SceneTransition.swift */; };
 		B5FC4ADB1E5A5F1D00339FD5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC4ADA1E5A5F1D00339FD5 /* GameScene.swift */; };
@@ -45,6 +47,8 @@
 		14077DF21E5763D700AF3F5B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B568D6121E5BE19F00E0E79F /* MapConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapConnector.swift; sourceTree = "<group>"; };
 		B568D6141E5BF2AD00E0E79F /* DegToRadians.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DegToRadians.swift; sourceTree = "<group>"; };
+		B5F6C7AD1E5C0960007BBB88 /* Fi_Character.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fi_Character.png; sourceTree = "<group>"; };
+		B5F6C7AF1E5C0BC5007BBB88 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
 		B5FC4AD61E5A52C000339FD5 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 		B5FC4AD81E5A5C4700339FD5 /* SceneTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneTransition.swift; sourceTree = "<group>"; };
 		B5FC4ADA1E5A5F1D00339FD5 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -130,7 +134,9 @@
 		14077DE61E5750A000AF3F5B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B5F6C7AD1E5C0960007BBB88 /* Fi_Character.png */,
 				B5FC4ADE1E5B4E5500339FD5 /* Level_Icon.png */,
+				B5F6C7AF1E5C0BC5007BBB88 /* water.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -207,8 +213,10 @@
 			files = (
 				14077DD71E5738BF00AF3F5B /* Main.storyboard in Resources */,
 				B5FC4ADF1E5B4E5500339FD5 /* Level_Icon.png in Resources */,
+				B5F6C7AE1E5C0960007BBB88 /* Fi_Character.png in Resources */,
 				14077DD91E5738BF00AF3F5B /* Assets.xcassets in Resources */,
 				14077DDC1E5738BF00AF3F5B /* LaunchScreen.storyboard in Resources */,
+				B5F6C7B01E5C0BC5007BBB88 /* water.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

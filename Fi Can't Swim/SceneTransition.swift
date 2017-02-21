@@ -12,7 +12,7 @@ var currView:SKView!
 
 func sceneTransition(initScene : SKScene, nextScene : SKScene){
     
-    let transition = SKTransition.fade(withDuration: 1.0)
+    let transition = SKTransition.fade(withDuration: 0.5)
     nextScene.scaleMode = .aspectFill
     nextScene.size = initScene.size
     currView.presentScene(nextScene, transition: transition)
