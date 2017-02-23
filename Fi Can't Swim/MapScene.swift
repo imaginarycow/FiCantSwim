@@ -8,42 +8,74 @@
 
 import SpriteKit
 
+
+
 class MapScene : SKScene {
     
-    let title = Label(label: "Map", fontColor: .red, fontSize: 30.0)
+    let title = Label(label: "Level Select", fontColor: .red, fontSize: 30.0)
     let backButton = BackButton()
     var levelIcons: [LevelIcon] = []
+    var levelsBuilt = false
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        deviceWidth = Int(self.view!.bounds.size.width)
+        deviceWidth = self.view!.bounds.size.width
         backgroundColor = .white
-        title.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.9)
+        title.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.90)
         title.zPosition = 10
         self.addChild(title)
         
         backButton.position = BackButtonPosition //CGPoint(x: (self.view?.bounds.width)! * 0.1, y: (self.view?.bounds.height)! * 0.9)
         self.addChild(backButton)
         
-        showLevels()
+        if !levelsBuilt{buildLevels()}
         
     }
     override func willMove(from view: SKView) {
         self.removeAllChildren()
     }
-    func showLevels(){
-        buildLevels(numberOfLevels: NumberOfLevels)
-        let buffer = CGFloat(10.0)
+    
+    func buildLevels(){
+
+        let iconSpace = deviceWidth / NumberOfIconsPerRow
         var count:CGFloat = 1
-        var row = 1
-        for icon in levelIcons {
+        var row:CGFloat = 1
+        var rCount = 0
+        var rIndex = 0
+        for index in 1...NumberOfLevels {
+
+            var icon:LevelIcon!
+            
+            if row.truncatingRemainder(dividingBy: 2) == 0 {
                 
-            icon.position = CGPoint(x: 0.0 + icon.size.width * count + buffer, y: (self.view?.bounds.height)! * 0.8 - row * icon.size.height * 2)
+                if rCount > 4 {
+                    rCount = 0
+                }
+                if rCount == 0 {
+                    rIndex = index + 4
+                }
+                
+                icon = LevelIcon(levelNum: rIndex)
+                rIndex -= 1
+                rCount += 1
+            }
+            else {
+                icon = LevelIcon(levelNum: index)
+            }
+            
+            levelIcons.append(icon)
+            let label = Label(label: String(icon.lvlNum), fontColor: .yellow, fontSize: 15.0)
+            icon.position = CGPoint(x: 0.0 + (iconSpace * count) - (iconSpace / 2), y: deviceHeight * 0.92 - iconSpace * row)
+            if count.truncatingRemainder(dividingBy: 2) == 0 {
+                icon.position = CGPoint(x: 0.0 + (iconSpace * count) - (iconSpace / 2), y: deviceHeight * 0.92 - iconSpace * row - iconSpace/2)
+            }
             self.addChild(icon)
-                    
+            icon.addChild(label)
             count += 1
-            if count = 6{
+            
+            //start new row
+            if count == 6{
                 count = 1
                 row += 1
             }
@@ -52,16 +84,36 @@ class MapScene : SKScene {
        connectLevels()
     }
     
+    //draw connecting lines for level icons
     func connectLevels(){
         
-    }
-    func buildLevels(numberOfLevels: Int){
-        var index = 1
-        for _ in 1...numberOfLevels {
-            let levelIcon = LevelIcon(levelNum: index)
-            levelIcons.append(levelIcon)
-            index += 1
+        var index = 0
+        
+        for _ in levelIcons {
+            
+            if (index < NumberOfLevels-1){
+                
+                let icon1 = levelIcons[index]
+                var icon2 = levelIcons[index]
+                
+                for icon in levelIcons {
+                    if icon.lvlNum == icon1.lvlNum + 1{
+                        icon2 = icon
+                    }
+                }
+
+                var points = [icon1.position, icon2.position]
+                let linearShapeNode = SKShapeNode(points: &points, count: points.count)
+                linearShapeNode.strokeColor = icon2.unlocked ? .green : .red
+                linearShapeNode.lineWidth = 5.0
+                addChild(linearShapeNode)
+                
+                index += 1
+                
+            }
+            
         }
+        
         
     }
     
