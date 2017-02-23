@@ -10,7 +10,9 @@ import SpriteKit
 
 class Character :  SKSpriteNode{
     
-    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+    static let fi_Size = CGSize(width: 30.0,height: 30.0)
+    
+    override init(texture: SKTexture? = SKTexture(imageNamed: "Fi_Body.png"), color: UIColor, size: CGSize = fi_Size) {
         super.init(texture: texture, color: color, size: size)
     }
     

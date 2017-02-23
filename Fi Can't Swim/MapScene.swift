@@ -8,8 +8,6 @@
 
 import SpriteKit
 
-
-
 class MapScene : SKScene {
     
     let title = Label(label: "Level Select", fontColor: .red, fontSize: 30.0)
@@ -80,7 +78,7 @@ class MapScene : SKScene {
                 row += 1
             }
         }
-    
+        levelsBuilt = true
        connectLevels()
     }
     
@@ -114,7 +112,6 @@ class MapScene : SKScene {
             
         }
         
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -122,6 +119,15 @@ class MapScene : SKScene {
             super.touchesBegan(touches, with: event)
             
             let location = touch.location(in: self)
+            
+            //go to selected scene if it is unlocked
+            for icon in levelIcons{
+                if icon.contains(location){
+                    //go to corresponding level
+                    currLevel = icon.lvlNum
+                    sceneTransition(initScene: self, nextScene: GameScene())
+                }
+            }
             
             if backButton.contains(location){
                 //go to game scene

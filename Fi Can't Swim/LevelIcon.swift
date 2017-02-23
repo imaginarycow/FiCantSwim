@@ -9,6 +9,7 @@
 import SpriteKit
 
 let iconSize:CGSize = CGSize(width: 40.0 * scale, height: 40.0 * scale)
+var levelIcons: [LevelIcon] = []
 
 class LevelIcon: SKSpriteNode {
 

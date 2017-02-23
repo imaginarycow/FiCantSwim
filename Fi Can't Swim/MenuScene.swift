@@ -31,6 +31,7 @@ class MenuScene: SKScene {
     }
     
     override func willMove(from view: SKView) {
+        self.removeAllActions()
         self.removeAllChildren()
     }
     
@@ -47,6 +48,8 @@ class MenuScene: SKScene {
         water.size = CGSize(width: deviceWidth * 2, height: deviceHeight / 5)
         water.position = CGPoint(x: centerX, y: 0.0 + water.size.height/2)
         addChild(water)
+        
+        water.run(SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: 50.0, y: 0.0, duration: 2.0), SKAction.moveBy(x: -50.0, y: 0.0, duration: 2.0)])))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
