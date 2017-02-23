@@ -49,7 +49,7 @@ class MapScene : SKScene {
             }
         }
     
-       connectLevels()     
+       connectLevels()
     }
     
     func connectLevels(){

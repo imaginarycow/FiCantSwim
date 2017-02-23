@@ -24,6 +24,7 @@
 		B5FC4ADB1E5A5F1D00339FD5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC4ADA1E5A5F1D00339FD5 /* GameScene.swift */; };
 		B5FC4ADD1E5A725A00339FD5 /* MapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC4ADC1E5A725A00339FD5 /* MapScene.swift */; };
 		B5FC4ADF1E5B4E5500339FD5 /* Level_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B5FC4ADE1E5B4E5500339FD5 /* Level_Icon.png */; };
+		B5FC4AE11E5C7ADD00339FD5 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC4AE01E5C7ADD00339FD5 /* Level.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B5FC4ADA1E5A5F1D00339FD5 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		B5FC4ADC1E5A725A00339FD5 /* MapScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScene.swift; sourceTree = "<group>"; };
 		B5FC4ADE1E5B4E5500339FD5 /* Level_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Level_Icon.png; sourceTree = "<group>"; };
+		B5FC4AE01E5C7ADD00339FD5 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				14077DE81E57562B00AF3F5B /* Character.swift */,
 				14077DEA1E57577F00AF3F5B /* LevelIcon.swift */,
 				14077DEE1E575C8000AF3F5B /* Label.swift */,
+				B5FC4AE01E5C7ADD00339FD5 /* Level.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				B5FC4AD71E5A52C000339FD5 /* SettingsScene.swift in Sources */,
 				B5FC4ADB1E5A5F1D00339FD5 /* GameScene.swift in Sources */,
 				B5FC4ADD1E5A725A00339FD5 /* MapScene.swift in Sources */,
+				B5FC4AE11E5C7ADD00339FD5 /* Level.swift in Sources */,
 				14077DF11E5763BF00AF3F5B /* SetScale.swift in Sources */,
 				14077DEF1E575C8000AF3F5B /* Label.swift in Sources */,
 				14077DE91E57562B00AF3F5B /* Character.swift in Sources */,
