@@ -10,22 +10,6 @@ import SpriteKit
 
 var currLevel = 1
 
-class Level : GameScene {
-    
-    //let bg:SKTexture!
-    
-    override init(size: CGSize) {
-        super.init(size: size)
-    }
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    
-}
 
 func loadLevel(level: Int, parent: SKScene){
     

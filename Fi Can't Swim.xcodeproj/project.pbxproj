@@ -23,6 +23,8 @@
 		B51038C61E5F455500AE79E0 /* WinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51038C51E5F455500AE79E0 /* WinScene.swift */; };
 		B51038C81E5F559700AE79E0 /* Game_Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51038C71E5F559700AE79E0 /* Game_Object.swift */; };
 		B51038CA1E5F55D100AE79E0 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51038C91E5F55D100AE79E0 /* Platform.swift */; };
+		B51038CC1E5F980A00AE79E0 /* NodePositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51038CB1E5F980A00AE79E0 /* NodePositions.swift */; };
+		B51038CE1E5FC42800AE79E0 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51038CD1E5FC42800AE79E0 /* Slide.swift */; };
 		B51308131E5E6D3900349C0C /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51308121E5E6D3900349C0C /* Level1.swift */; };
 		B51308151E5E745200349C0C /* landing1.png in Resources */ = {isa = PBXBuildFile; fileRef = B51308141E5E745200349C0C /* landing1.png */; };
 		B568D6131E5BE19F00E0E79F /* MapConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B568D6121E5BE19F00E0E79F /* MapConnector.swift */; };
@@ -56,6 +58,8 @@
 		B51038C51E5F455500AE79E0 /* WinScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinScene.swift; sourceTree = "<group>"; };
 		B51038C71E5F559700AE79E0 /* Game_Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game_Object.swift; sourceTree = "<group>"; };
 		B51038C91E5F55D100AE79E0 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		B51038CB1E5F980A00AE79E0 /* NodePositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodePositions.swift; sourceTree = "<group>"; };
+		B51038CD1E5FC42800AE79E0 /* Slide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		B51308121E5E6D3900349C0C /* Level1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
 		B51308141E5E745200349C0C /* landing1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landing1.png; sourceTree = "<group>"; };
 		B568D6121E5BE19F00E0E79F /* MapConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapConnector.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		14077DE51E57509200AF3F5B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				B51038CB1E5F980A00AE79E0 /* NodePositions.swift */,
 				14077DF21E5763D700AF3F5B /* Globals.swift */,
 				14077DF01E5763BF00AF3F5B /* SetScale.swift */,
 				B5FC4AD81E5A5C4700339FD5 /* SceneTransition.swift */,
@@ -162,11 +167,12 @@
 		14077DE71E5755AA00AF3F5B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				14077DE81E57562B00AF3F5B /* Character.swift */,
+				B51038CD1E5FC42800AE79E0 /* Slide.swift */,
 				14077DEA1E57577F00AF3F5B /* LevelIcon.swift */,
 				14077DEE1E575C8000AF3F5B /* Label.swift */,
 				B5FC4AE01E5C7ADD00339FD5 /* Level.swift */,
 				B51038C71E5F559700AE79E0 /* Game_Object.swift */,
+				14077DE81E57562B00AF3F5B /* Character.swift */,
 				B51038C91E5F55D100AE79E0 /* Platform.swift */,
 			);
 			name = Classes;
@@ -265,11 +271,13 @@
 				14077DED1E5758B000AF3F5B /* MenuScene.swift in Sources */,
 				14077DEB1E57577F00AF3F5B /* LevelIcon.swift in Sources */,
 				B5FC4AD71E5A52C000339FD5 /* SettingsScene.swift in Sources */,
+				B51038CE1E5FC42800AE79E0 /* Slide.swift in Sources */,
 				B568D6131E5BE19F00E0E79F /* MapConnector.swift in Sources */,
 				B5FC4ADB1E5A5F1D00339FD5 /* GameScene.swift in Sources */,
 				B5FC4ADD1E5A725A00339FD5 /* MapScene.swift in Sources */,
 				B51038CA1E5F55D100AE79E0 /* Platform.swift in Sources */,
 				B51038C81E5F559700AE79E0 /* Game_Object.swift in Sources */,
+				B51038CC1E5F980A00AE79E0 /* NodePositions.swift in Sources */,
 				B5FC4AE11E5C7ADD00339FD5 /* Level.swift in Sources */,
 				14077DF11E5763BF00AF3F5B /* SetScale.swift in Sources */,
 				14077DEF1E575C8000AF3F5B /* Label.swift in Sources */,

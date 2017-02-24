@@ -17,14 +17,27 @@ class GameObject: SKSpriteNode {
         self.init(texture: SKTexture(image: #imageLiteral(resourceName: "landing1.png")), size: CGSize(width: 10.0, height: 10.0))
     }
     
-    init(type: String = "Game Object", texture: SKTexture?, color: UIColor = .white, size: CGSize, isDynamic:Bool = false) {
+    init(type: ObjectType = .unknown, texture: SKTexture?, color: UIColor = .white, size: CGSize, isDynamic:Bool = false) {
         super.init(texture: texture, color: color, size: size)
-        self.physicsBody = SKPhysicsBody(texture: texture!, size: size)
-        self.physicsBody?.isDynamic = isDynamic
+        
+        if type == .character{
+            self.physicsBody = SKPhysicsBody(circleOfRadius: characterSize.width * 0.45)
+            self.physicsBody?.affectedByGravity = true
+        }
+        else {
+            self.physicsBody = SKPhysicsBody(texture: texture!, size: size)
+            self.physicsBody?.affectedByGravity = false
+            self.physicsBody?.isDynamic = isDynamic
+            self.zPosition = 2
+        }
+        //self.physicsBody?.isDynamic = isDynamic
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+enum ObjectType {
+    case character, platform, coin, life, unknown
 }
