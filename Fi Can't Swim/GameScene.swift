@@ -20,10 +20,9 @@ class GameScene : SKScene {
     let startingPlatform = GameObject(texture: SKTexture(image: #imageLiteral(resourceName: "landing1.png")), size: landingSize)
     let landingPlatform = GameObject(texture: SKTexture(image: #imageLiteral(resourceName: "landing1.png")), size: landingSize)
 
-    var slides: [SKShapeNode] = []
+    let slide = SKShapeNode()
+    var slides: [Slide] = []
     var points: [CGPoint] = []
-    
-    var slide: SKShapeNode = SKShapeNode()
     var path :CGPath!
     
     
@@ -45,18 +44,10 @@ class GameScene : SKScene {
         fi.position = characterP
         fi.physicsBody?.affectedByGravity = true
         
-        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -10.0)
-        fi.physicsBody?.applyForce(CGVector(dx: 200.0, dy: 0.0))
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -9.8)
+        fi.physicsBody?.applyForce(CGVector(dx: 300.0, dy: 0.0))
         
         loadWater()
-        
-        //slide = SKShapeNode(points: &points, count: points.count)
-        //slide = SKShapeNode(path: path)
-        addChild(slide)
-        slide.name = "slide"
-        slide.fillColor = .blue
-        slide.strokeColor = .red
-        slide.lineWidth = 10.0
         
         //nextSceneButton.position = centerScreen
         //addChild(nextSceneButton)
@@ -98,6 +89,9 @@ class GameScene : SKScene {
         }
         
     }
+    func loseLevel() {
+        sceneTransition(initScene: self, nextScene: MapScene())
+    }
     
     func loadWater(){
         //let water = SKSpriteNode(imageNamed: "water.png")
@@ -111,37 +105,15 @@ class GameScene : SKScene {
     func moveWater(){
         water.run(SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: 50.0, y: 0.0, duration: 2.0), SKAction.moveBy(x: -50.0, y: 0.0, duration: 2.0)])))
     }
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for point in points {
-            print(point)
-        }
-        drawLines()
-        //updateSlide()
-        //addChild(slide)
-        
-    }
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let location = touch.location(in: self)
-            
-            points.append(location)
-            drawLines()
-            path = createPath()
-            //updateSlide()
-            //slide = SKShapeNode(points: &points, count: points.count)
-            
-        }
-
-    }
     
     func updateSlide() {
-        //drawLines()
-        //self.slide = SKShapeNode(path: path)
+
     }
-    
+    //create the slide path from points made by user dragging finger on screen
     func createPath() -> CGPath? {
         //1
         if points.count <= 1 {
+            print("No points in points array")
             return nil
         }
         //2
@@ -160,32 +132,50 @@ class GameScene : SKScene {
             }
             i += 1
         }
-        
+        print("create path method called")
+        print("\(points.count) points in points array")
         return path
     }
+    //draw slide from points array
     func drawLines() {
+        print("draw lines method called")
         //1
-        enumerateChildNodes(withName: "sl", using: {node, stop in
+        enumerateChildNodes(withName: "line", using: {node, stop in
             node.removeFromParent()
         })
         
         //2
-        enumerateChildNodes(withName: "slide", using: {node, stop in
+        //enumerateChildNodes(withName: "slide", using: {node, stop in
             //3
-            let slide = node as! SKShapeNode
+            //let slide = node as! SKShapeNode
             if let path = self.createPath(){
-                let shapeNode = SKShapeNode()
-                shapeNode.path = path
-                shapeNode.name = "line"
-                shapeNode.strokeColor = .red
-                shapeNode.lineWidth = 2
-                shapeNode.zPosition = 1
                 
-                self.addChild(shapeNode)
+                let slide = Slide(name: "line", path: path)
+                slide.active = true
+                self.addChild(slide)
+                slides.append(slide)
+                print("adding slide")
             }
-        })
+        //})
     }
-    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for point in points {
+            print(point)
+        }
+        drawLines()
+        
+    }
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            
+            points.append(location)
+            drawLines()
+            path = createPath()
+            
+        }
+
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             super.touchesBegan(touches, with: event)
@@ -193,11 +183,10 @@ class GameScene : SKScene {
             let location = touch.location(in: self)
             
             if location != backButton.position {
-                
+                points = []
                 points.append(location)
-                //addChild(slide)
                 path = createPath()
-                //updateSlide()
+
             }
             
             //if nextSceneButton.contains(location){
@@ -212,7 +201,9 @@ class GameScene : SKScene {
         }
     }
     override func update(_ currentTime: TimeInterval) {
-        
+        if !fi.checkForMovement() {
+            loseLevel()
+        }
     }
 
     

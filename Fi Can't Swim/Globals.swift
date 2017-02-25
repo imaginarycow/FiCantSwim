@@ -21,7 +21,15 @@ let NumberOfLevels: Int = 35
 let NumberOfIconsPerRow:CGFloat = 5
 let NumberOfRows: Int = NumberOfLevels / Int(NumberOfIconsPerRow)
 
-let fiColor: UIColor = UIColor(colorLiteralRed: 247/255, green: 82/255, blue: 82/255, alpha: 1.0)
-
 var score = 0
 var live = 3
+
+let fiColor: UIColor = UIColor(colorLiteralRed: 247/255, green: 82/255, blue: 82/255, alpha: 1.0)
+
+func randomColor() -> UIColor {
+    let colors: [UIColor] = [.red, .green, .blue, .magenta, .brown, .black, .yellow, .purple, .gray]
+    
+    return colors[Int(arc4random_uniform(UInt32(colors.count)))]
+}
+
+

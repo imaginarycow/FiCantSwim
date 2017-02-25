@@ -167,13 +167,13 @@
 		14077DE71E5755AA00AF3F5B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B51038CD1E5FC42800AE79E0 /* Slide.swift */,
 				14077DEA1E57577F00AF3F5B /* LevelIcon.swift */,
 				14077DEE1E575C8000AF3F5B /* Label.swift */,
 				B5FC4AE01E5C7ADD00339FD5 /* Level.swift */,
 				B51038C71E5F559700AE79E0 /* Game_Object.swift */,
 				14077DE81E57562B00AF3F5B /* Character.swift */,
 				B51038C91E5F55D100AE79E0 /* Platform.swift */,
+				B51038CD1E5FC42800AE79E0 /* Slide.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

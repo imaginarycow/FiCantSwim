@@ -8,30 +8,25 @@
 
 import SpriteKit
 
-//var wayPoints: [CGPoint] = []
-var velocity = CGPoint(x: 0, y: 0)
 
 class Slide: SKShapeNode {
     
-    var wayPoints: [CGPoint] = []
     var active = false
     
-    init(name: String) {
+    init(name: String, path: CGPath) {
         super.init()
-        self.fillColor = .green
-        self.lineWidth = 10.0
-        self.strokeColor = .green
+        self.path = path
+        self.lineWidth = 5
+        self.strokeColor = randomColor()
+        self.zPosition = 9
         self.name = name
-        //super.init(texture: texture, color: nil, size: texture.size())
+        self.physicsBody?.mass = 1.0
+        self.physicsBody = SKPhysicsBody(edgeChainFrom: path)
+
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
-    func appendPoint(point: CGPoint) {
-        wayPoints.append(point)
-    }
 }
