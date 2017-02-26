@@ -10,12 +10,9 @@ import Foundation
 import SpriteKit
 
 let gameData = UserDefaults()
+var levelScore = 0
 
-let TitlePosition = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height * 0.92)
-let BackButtonPosition = CGPoint(x: UIScreen.main.bounds.width * 0.1, y: UIScreen.main.bounds.height * 0.95)
-let centerX = CGFloat(UIScreen.main.bounds.width / 2)
-let centerY = CGFloat(UIScreen.main.bounds.height / 2)
-let centerScreen = CGPoint(x: centerX, y: centerY)
+
 
 let NumberOfLevels: Int = 35
 let NumberOfIconsPerRow:CGFloat = 5

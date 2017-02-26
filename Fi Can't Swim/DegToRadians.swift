@@ -16,3 +16,13 @@ extension FloatingPoint {
     var radiansToDegrees: Self { return self * 180 / .pi }
 }
 
+func delay(delay:Double, closure:@escaping ()->()) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+        // your code here
+        closure()
+    }
+}
+
+
+
+

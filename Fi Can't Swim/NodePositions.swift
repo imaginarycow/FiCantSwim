@@ -8,6 +8,16 @@
 
 import SpriteKit
 
+let centerX = CGFloat(UIScreen.main.bounds.width / 2)
+let centerY = CGFloat(UIScreen.main.bounds.height / 2)
+let centerScreen = CGPoint(x: centerX, y: centerY)
+
+let TitlePosition = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height * 0.92)
+let BackButtonPosition = CGPoint(x: UIScreen.main.bounds.width * 0.1, y: UIScreen.main.bounds.height * 0.95)
+let ScoreLabelPosition = CGPoint(x: UIScreen.main.bounds.width * 0.85, y: UIScreen.main.bounds.height * 0.95)
+let LevelLabelPosition = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height * 0.95)
+
+
 var startP = CGPoint()
 var landP = CGPoint()
 var characterP = CGPoint()

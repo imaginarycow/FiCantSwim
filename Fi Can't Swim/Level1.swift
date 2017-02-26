@@ -13,8 +13,8 @@ func loadLevel1(parent: SKScene) {
     
     startP = startPosition1
     landP = landingPosition1
-    characterP = CGPoint(x: startP.x, y: startP.y + characterSize.height)
+    characterP = CGPoint(x: startP.x, y: startP.y + characterSize.height * 0.6)
     
-    
+    levelScore = 0
     
 }

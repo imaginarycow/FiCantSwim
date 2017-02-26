@@ -12,10 +12,12 @@ import SpriteKit
 class GameScene : SKScene {
     
     let title = Label(label: "Game", fontSize: 30.0)
-    let levelLabel = Label(label: "Level \(currLevel)", fontSize: 10.0)
-    let scoreLabel = Label(label: "Score Label", fontSize: 15.0)
+    let levelLabel = Label(label: "Level \(currLevel)", fontSize: 20.0)
+    let scoreLabel = Label(label: "Score \(levelScore)", fontSize: 15.0)
+    
     let backButton = BackButton()
-    let water = SKSpriteNode(imageNamed: "water.png")
+    let water_front = Water()
+    let water_back = Water()
     let fi = Character(type: .character, texture: SKTexture(image: #imageLiteral(resourceName: "Fi_Body.png")), color: .white, size: characterSize, isDynamic: true)
     let startingPlatform = GameObject(texture: SKTexture(image: #imageLiteral(resourceName: "landing1.png")), size: landingSize)
     let landingPlatform = GameObject(texture: SKTexture(image: #imageLiteral(resourceName: "landing1.png")), size: landingSize)
@@ -45,7 +47,13 @@ class GameScene : SKScene {
         fi.physicsBody?.affectedByGravity = true
         
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -9.8)
-        fi.physicsBody?.applyForce(CGVector(dx: 300.0, dy: 0.0))
+        
+        
+        delay(delay: 3.0, closure: {
+            print("applying force after delay")
+            self.startingPlatform.zRotation = -(CGFloat)(45.degreesToRadians)
+            self.fi.physicsBody?.applyForce(CGVector(dx: 300.0, dy: 0.0))
+        })
         
         loadWater()
         
@@ -60,16 +68,19 @@ class GameScene : SKScene {
     func buildLabels(){
         
         title.position = TitlePosition
-        self.addChild(title)
+        //self.addChild(title)
         
-        levelLabel.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.9)
+        levelLabel.position = LevelLabelPosition
         self.addChild(levelLabel)
         
-        scoreLabel.position = CGPoint(x: (self.view?.bounds.width)! * 0.9, y: (self.view?.bounds.height)! * 0.9)
+        scoreLabel.position = ScoreLabelPosition
         self.addChild(scoreLabel)
         
         backButton.position = BackButtonPosition //CGPoint(x: (self.view?.bounds.width)! * 0.1, y: (self.view?.bounds.height)! * 0.9)
         self.addChild(backButton)
+        
+        //backButton.position = BackButtonPosition //CGPoint(x: (self.view?.bounds.width)! * 0.1, y: (self.view?.bounds.height)! * 0.9)
+
 
     }
     func updateScore(){
@@ -94,16 +105,22 @@ class GameScene : SKScene {
     }
     
     func loadWater(){
-        //let water = SKSpriteNode(imageNamed: "water.png")
-        water.size = CGSize(width: deviceWidth * 2, height: deviceHeight / 5)
-        water.position = CGPoint(x: centerX, y: 0.0 + water.size.height/2)
-        water.zPosition = fi.zPosition + 1
-        addChild(water)
+        
+        water_front.position = CGPoint(x: centerX, y: 0.0 + water_front.size.height/2)
+        water_front.zPosition = fi.zPosition + 1
+        addChild(water_front)
+        
+        water_back.position = CGPoint(x: centerX, y: 0.0 + water_front.size.height * 0.65)
+        water_back.zPosition = fi.zPosition - 1
+        water_back.alpha = 0.6
+        addChild(water_back)
         
         moveWater()
     }
     func moveWater(){
-        water.run(SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: 50.0, y: 0.0, duration: 2.0), SKAction.moveBy(x: -50.0, y: 0.0, duration: 2.0)])))
+        water_front.run(SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: 50.0, y: 0.0, duration: 2.0), SKAction.moveBy(x: -50.0, y: 0.0, duration: 2.0)])))
+        
+        water_back.run(SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: -50.0, y: 0.0, duration: 2.0), SKAction.moveBy(x: 50.0, y: 0.0, duration: 2.0)])))
     }
     
     func updateSlide() {
@@ -202,7 +219,7 @@ class GameScene : SKScene {
     }
     override func update(_ currentTime: TimeInterval) {
         if !fi.checkForMovement() {
-            loseLevel()
+            //loseLevel()
         }
     }
 
