@@ -16,7 +16,8 @@ class Character :  GameObject{
     override init(type: ObjectType = .character, texture: SKTexture? = SKTexture(image: #imageLiteral(resourceName: "Fi_Body.png")), color: UIColor = .white, size: CGSize = characterSize, isDynamic: Bool = true) {
         super.init(type: type, texture: texture, size: size)
         self.zPosition = 2
-        self.physicsBody?.restitution = 0.5
+        self.physicsBody?.affectedByGravity = true
+        self.physicsBody?.restitution = 0.2
         
     }
     

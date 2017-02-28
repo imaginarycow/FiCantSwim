@@ -26,9 +26,10 @@ class GameScene : SKScene {
     var slides: [Slide] = []
     var points: [CGPoint] = []
     var path :CGPath!
+    var catcher: SKShapeNode!
     
     
-    let nextSceneButton = Label(label: "Next Level Please", fontSize: 50.0)
+    let restartLevelButton = Label(label: "Restart Level", fontSize: 20.0)
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -39,12 +40,14 @@ class GameScene : SKScene {
         //set platform and character positions in loadLevel
         loadLevel(level: currLevel, parent: self)
         addChild(startingPlatform)
-        addChild(landingPlatform)
         addChild(fi)
         startingPlatform.position = startP
-        landingPlatform.position = landP
+        landingPlatform.position = catcherPosition
         fi.position = characterP
-        fi.physicsBody?.affectedByGravity = true
+        
+        catcher = Curve(name: "curve", centerPoint: catcherPosition)
+        addChild(catcher)
+        
         
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -9.8)
         
@@ -57,8 +60,8 @@ class GameScene : SKScene {
         
         loadWater()
         
-        //nextSceneButton.position = centerScreen
-        //addChild(nextSceneButton)
+        restartLevelButton.position = CGPoint(x: deviceWidth * 0.8, y: deviceHeight * 0.9)
+        addChild(restartLevelButton)
         
     }
     override func willMove(from view: SKView) {
@@ -87,10 +90,13 @@ class GameScene : SKScene {
         //save level score
         
     }
-    func beatLevel(){
+    func beatLevel(beat : Bool){
         
-        //count points 
-        currLevel += 1
+        if beat {
+            //count points
+            currLevel += 1
+        }
+        
         if currLevel > NumberOfLevels {
             //player beat game
             sceneTransition(initScene: self, nextScene: WinScene())
@@ -206,9 +212,9 @@ class GameScene : SKScene {
 
             }
             
-            //if nextSceneButton.contains(location){
-            //    beatLevel()
-            //}
+            if restartLevelButton.contains(location){
+                beatLevel(beat: false)
+            }
             
             if backButton.contains(location){
                 //go to game scene

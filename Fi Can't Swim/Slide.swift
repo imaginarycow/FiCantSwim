@@ -16,9 +16,9 @@ class Slide: SKShapeNode {
     init(name: String, path: CGPath) {
         super.init()
         self.path = path
-        self.lineWidth = 5
+        self.lineWidth = 8
         self.strokeColor = randomColor()
-        self.zPosition = 9
+        self.zPosition = 5
         self.name = name
         self.physicsBody?.mass = 1.0
         self.physicsBody = SKPhysicsBody(edgeChainFrom: path)

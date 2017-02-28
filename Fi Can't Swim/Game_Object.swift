@@ -21,8 +21,8 @@ class GameObject: SKSpriteNode {
         super.init(texture: texture, color: color, size: size)
         
         if type == .character{
-            self.physicsBody = SKPhysicsBody(circleOfRadius: characterSize.width * 0.45)
-            self.physicsBody?.affectedByGravity = true
+            self.physicsBody = SKPhysicsBody(circleOfRadius: characterSize.width * 0.5)
+
         }
         else {
             self.physicsBody = SKPhysicsBody(texture: texture!, size: size)
