@@ -32,6 +32,16 @@
 		B5C1C46F1E631CD800C85029 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C46E1E631CD800C85029 /* BackButton.swift */; };
 		B5C1C4711E6329D200C85029 /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C4701E6329D200C85029 /* Water.swift */; };
 		B5C1C47B1E6630BD00C85029 /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C47A1E6630BD00C85029 /* Curve.swift */; };
+		B5C1C47E1E674ED900C85029 /* leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C47C1E674ED900C85029 /* leftArrow.png */; };
+		B5C1C47F1E674ED900C85029 /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C47D1E674ED900C85029 /* rightArrow.png */; };
+		B5C1C4831E67943000C85029 /* Fi_Body2.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4801E67943000C85029 /* Fi_Body2.png */; };
+		B5C1C4841E67943000C85029 /* Fi_Body3.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4811E67943000C85029 /* Fi_Body3.png */; };
+		B5C1C4851E67943000C85029 /* Fi_Body4.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4821E67943000C85029 /* Fi_Body4.png */; };
+		B5C1C4871E67C05C00C85029 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4861E67C05C00C85029 /* flag.png */; };
+		B5C1C4891E68AFC100C85029 /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C4881E68AFC100C85029 /* LoseScene.swift */; };
+		B5C1C48B1E68B12A00C85029 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C48A1E68B12A00C85029 /* Coin.swift */; };
+		B5C1C48D1E68B58A00C85029 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C48C1E68B58A00C85029 /* coin.png */; };
+		B5C1C48F1E68F2B100C85029 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C48E1E68F2B100C85029 /* Colors.swift */; };
 		B5F6C7AE1E5C0960007BBB88 /* Fi_Character.png in Resources */ = {isa = PBXBuildFile; fileRef = B5F6C7AD1E5C0960007BBB88 /* Fi_Character.png */; };
 		B5F6C7B01E5C0BC5007BBB88 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = B5F6C7AF1E5C0BC5007BBB88 /* water.png */; };
 		B5FC4AD71E5A52C000339FD5 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC4AD61E5A52C000339FD5 /* SettingsScene.swift */; };
@@ -70,6 +80,16 @@
 		B5C1C46E1E631CD800C85029 /* BackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		B5C1C4701E6329D200C85029 /* Water.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Water.swift; sourceTree = "<group>"; };
 		B5C1C47A1E6630BD00C85029 /* Curve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Curve.swift; sourceTree = "<group>"; };
+		B5C1C47C1E674ED900C85029 /* leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftArrow.png; sourceTree = "<group>"; };
+		B5C1C47D1E674ED900C85029 /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightArrow.png; sourceTree = "<group>"; };
+		B5C1C4801E67943000C85029 /* Fi_Body2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fi_Body2.png; sourceTree = "<group>"; };
+		B5C1C4811E67943000C85029 /* Fi_Body3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fi_Body3.png; sourceTree = "<group>"; };
+		B5C1C4821E67943000C85029 /* Fi_Body4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fi_Body4.png; sourceTree = "<group>"; };
+		B5C1C4861E67C05C00C85029 /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
+		B5C1C4881E68AFC100C85029 /* LoseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
+		B5C1C48A1E68B12A00C85029 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		B5C1C48C1E68B58A00C85029 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin.png; sourceTree = "<group>"; };
+		B5C1C48E1E68F2B100C85029 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B5F6C7AD1E5C0960007BBB88 /* Fi_Character.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fi_Character.png; sourceTree = "<group>"; };
 		B5F6C7AF1E5C0BC5007BBB88 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
 		B5FC4AD61E5A52C000339FD5 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
@@ -138,6 +158,7 @@
 				B5FC4AD61E5A52C000339FD5 /* SettingsScene.swift */,
 				14077DD11E5738BF00AF3F5B /* SceneReference.swift */,
 				B51038C51E5F455500AE79E0 /* WinScene.swift */,
+				B5C1C4881E68AFC100C85029 /* LoseScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -145,6 +166,7 @@
 		14077DE51E57509200AF3F5B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5C1C48E1E68F2B100C85029 /* Colors.swift */,
 				B51038CB1E5F980A00AE79E0 /* NodePositions.swift */,
 				14077DF21E5763D700AF3F5B /* Globals.swift */,
 				14077DF01E5763BF00AF3F5B /* SetScale.swift */,
@@ -161,6 +183,13 @@
 		14077DE61E5750A000AF3F5B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B5C1C48C1E68B58A00C85029 /* coin.png */,
+				B5C1C4861E67C05C00C85029 /* flag.png */,
+				B5C1C4801E67943000C85029 /* Fi_Body2.png */,
+				B5C1C4811E67943000C85029 /* Fi_Body3.png */,
+				B5C1C4821E67943000C85029 /* Fi_Body4.png */,
+				B5C1C47C1E674ED900C85029 /* leftArrow.png */,
+				B5C1C47D1E674ED900C85029 /* rightArrow.png */,
 				B5F6C7AD1E5C0960007BBB88 /* Fi_Character.png */,
 				B51038C31E5F423200AE79E0 /* Fi_Body.png */,
 				B51308141E5E745200349C0C /* landing1.png */,
@@ -174,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				14077DEA1E57577F00AF3F5B /* LevelIcon.swift */,
+				B5C1C48A1E68B12A00C85029 /* Coin.swift */,
 				14077DEE1E575C8000AF3F5B /* Label.swift */,
 				B5C1C46E1E631CD800C85029 /* BackButton.swift */,
 				B5FC4AE01E5C7ADD00339FD5 /* Level.swift */,
@@ -255,14 +285,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C1C4851E67943000C85029 /* Fi_Body4.png in Resources */,
 				B51308151E5E745200349C0C /* landing1.png in Resources */,
 				14077DD71E5738BF00AF3F5B /* Main.storyboard in Resources */,
+				B5C1C4871E67C05C00C85029 /* flag.png in Resources */,
+				B5C1C47F1E674ED900C85029 /* rightArrow.png in Resources */,
 				B51038C41E5F423200AE79E0 /* Fi_Body.png in Resources */,
 				B5FC4ADF1E5B4E5500339FD5 /* Level_Icon.png in Resources */,
 				B5F6C7AE1E5C0960007BBB88 /* Fi_Character.png in Resources */,
+				B5C1C4841E67943000C85029 /* Fi_Body3.png in Resources */,
 				14077DD91E5738BF00AF3F5B /* Assets.xcassets in Resources */,
 				14077DDC1E5738BF00AF3F5B /* LaunchScreen.storyboard in Resources */,
+				B5C1C48D1E68B58A00C85029 /* coin.png in Resources */,
 				B5F6C7B01E5C0BC5007BBB88 /* water.png in Resources */,
+				B5C1C47E1E674ED900C85029 /* leftArrow.png in Resources */,
+				B5C1C4831E67943000C85029 /* Fi_Body2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,12 +319,15 @@
 				14077DED1E5758B000AF3F5B /* MenuScene.swift in Sources */,
 				14077DEB1E57577F00AF3F5B /* LevelIcon.swift in Sources */,
 				B5FC4AD71E5A52C000339FD5 /* SettingsScene.swift in Sources */,
+				B5C1C48B1E68B12A00C85029 /* Coin.swift in Sources */,
 				B51038CE1E5FC42800AE79E0 /* Slide.swift in Sources */,
 				B568D6131E5BE19F00E0E79F /* MapConnector.swift in Sources */,
 				B5FC4ADB1E5A5F1D00339FD5 /* GameScene.swift in Sources */,
 				B5FC4ADD1E5A725A00339FD5 /* MapScene.swift in Sources */,
 				B51038CA1E5F55D100AE79E0 /* Platform.swift in Sources */,
 				B51038C81E5F559700AE79E0 /* Game_Object.swift in Sources */,
+				B5C1C4891E68AFC100C85029 /* LoseScene.swift in Sources */,
+				B5C1C48F1E68F2B100C85029 /* Colors.swift in Sources */,
 				B51038CC1E5F980A00AE79E0 /* NodePositions.swift in Sources */,
 				B5FC4AE11E5C7ADD00339FD5 /* Level.swift in Sources */,
 				14077DF11E5763BF00AF3F5B /* SetScale.swift in Sources */,

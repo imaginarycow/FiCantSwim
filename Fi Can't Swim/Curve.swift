@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-let curveSize = CGSize(width: characterSize.width * 0.6, height: characterSize.height * 0.6)
+let curveSize = CGSize(width: characterSize.width * 0.75, height: characterSize.height * 0.75)
 
 class Curve : SKShapeNode{
     
@@ -20,10 +20,10 @@ class Curve : SKShapeNode{
         self.name = name
         
         let path = CGMutablePath()
-        let startPoint = CGPoint(x: centerPoint.x + characterSize.width, y: centerPoint.y)
-        let midPoint1 = CGPoint(x: centerPoint.x + characterSize.width * 0.8, y: centerPoint.y - characterSize.height)
-        let midPoint2 = CGPoint(x: centerPoint.x - characterSize.width * 0.8, y: centerPoint.y - characterSize.height)
-        let endPoint = CGPoint(x: centerPoint.x - characterSize.width, y: centerPoint.y)
+        let startPoint = CGPoint(x: centerPoint.x + curveSize.width, y: centerPoint.y)
+        let midPoint1 = CGPoint(x: centerPoint.x + curveSize.width * 0.8, y: centerPoint.y - curveSize.height)
+        let midPoint2 = CGPoint(x: centerPoint.x - curveSize.width * 0.8, y: centerPoint.y - curveSize.height)
+        let endPoint = CGPoint(x: centerPoint.x - curveSize.width, y: centerPoint.y)
         
         path.move(to: startPoint)
         path.addCurve(to: endPoint, control1: midPoint1, control2: midPoint2)

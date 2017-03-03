@@ -18,6 +18,8 @@ class MenuScene: SKScene {
     
     override func didMove(to view: SKView) {
         
+        loadGameData()
+        
         backgroundColor = .white
         label.position = CGPoint(x: TitlePosition.x, y: TitlePosition.y)
         addChild(label)
@@ -33,6 +35,11 @@ class MenuScene: SKScene {
     override func willMove(from view: SKView) {
         self.removeAllActions()
         self.removeAllChildren()
+    }
+    
+    func loadGameData(){
+        
+        
     }
     
     func loadBackground() {

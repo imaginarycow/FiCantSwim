@@ -8,12 +8,15 @@
 
 import SpriteKit
 
+var currFi = #imageLiteral(resourceName: "Fi_Body.png")
+
 class Character :  GameObject{
     
     var isMoving: Bool = false
+    var waypoints: [CGPoint] = []
     
     
-    override init(type: ObjectType = .character, texture: SKTexture? = SKTexture(image: #imageLiteral(resourceName: "Fi_Body.png")), color: UIColor = .white, size: CGSize = characterSize, isDynamic: Bool = true) {
+    override init(type: ObjectType = .character, texture: SKTexture? = SKTexture(image: currFi), color: UIColor = .white, size: CGSize = characterSize, isDynamic: Bool = true) {
         super.init(type: type, texture: texture, size: size)
         self.zPosition = 2
         self.physicsBody?.affectedByGravity = true

@@ -102,7 +102,7 @@ class MapScene : SKScene {
 
                 var points = [icon1.position, icon2.position]
                 let linearShapeNode = SKShapeNode(points: &points, count: points.count)
-                linearShapeNode.strokeColor = icon2.unlocked ? .green : .red
+                linearShapeNode.strokeColor = icon2.unlocked ? .green : fiColor
                 linearShapeNode.lineWidth = 5.0
                 addChild(linearShapeNode)
                 

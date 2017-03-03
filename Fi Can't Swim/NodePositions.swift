@@ -31,6 +31,6 @@ var startPosition4 = CGPoint(x: deviceWidth * 0.9, y: deviceHeight * 0.2)
 
 //fi beginning position based on beginning platform position
 
-var catcherPosition1 = CGPoint(x: deviceWidth * 0.95 - curveSize.width/2, y: deviceHeight * 0.2)
+var catcherPosition1 = CGPoint(x: deviceWidth * 0.99 - curveSize.width, y: deviceHeight * 0.2)
 var catcherPosition2 = CGPoint(x: deviceWidth * 0.1, y: deviceHeight * 0.2)
 var catcherPosition3 = CGPoint(x: deviceWidth * 0.5, y: deviceHeight * 0.2)

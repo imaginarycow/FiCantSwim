@@ -17,6 +17,7 @@ class Slide: SKShapeNode {
         super.init()
         self.path = path
         self.lineWidth = 8
+        self.lineCap = .round
         self.strokeColor = randomColor()
         self.zPosition = 5
         self.name = name
