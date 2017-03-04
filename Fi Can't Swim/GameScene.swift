@@ -9,14 +9,16 @@
 import SpriteKit
 
 
-class GameScene : SKScene {
+class GameScene : SKScene, SKPhysicsContactDelegate {
     
+    
+    //labels and buttons
     let title = Label(label: "Game", fontSize: 30.0)
     let levelLabel = Label(label: "Level \(currLevel)", fontSize: 20.0)
-    let scoreLabel = Label(label: "Score \(levelScore)", fontSize: 15.0)
+    let coinsLabel = Label(label: "Coins \(coinCount)", fontSize: 15.0)
     let boostButton = Label(label: "Boost", fontSize: 20.0)
-    
     let backButton = BackButton()
+    
     let water_front = Water()
     let water_back = Water()
     let fi = Character(type: .character, texture: SKTexture(image: currFi), color: .white, size: characterSize, isDynamic: true)
@@ -37,8 +39,18 @@ class GameScene : SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        backgroundColor = .yellow
+        backgroundColor = custYellow
         buildLabels()
+        
+        // 1
+        let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        // 2
+        borderBody.friction = 0
+        // 3
+        self.physicsBody = borderBody
+        
+        self.physicsWorld.contactDelegate = self
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -9.8)
         
         //set platform and character positions in loadLevel
         loadLevel(level: currLevel, parent: self)
@@ -50,9 +62,9 @@ class GameScene : SKScene {
         addCatcher()
         addCoins()
         
-        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -9.8)
         
         
+        //wait for 3 seconds, then apply force to character
         delay(delay: 3.0, closure: {
             print("applying force after delay")
             self.startingPlatform.zRotation = -(CGFloat)(45.degreesToRadians)
@@ -88,29 +100,29 @@ class GameScene : SKScene {
         levelLabel.position = LevelLabelPosition
         self.addChild(levelLabel)
         
-        scoreLabel.position = ScoreLabelPosition
-        self.addChild(scoreLabel)
+        coinsLabel.position = ScoreLabelPosition
+        self.addChild(coinsLabel)
         
-        backButton.position = BackButtonPosition //CGPoint(x: (self.view?.bounds.width)! * 0.1, y: (self.view?.bounds.height)! * 0.9)
+        backButton.position = BackButtonPosition
         self.addChild(backButton)
         
         boostButton.position = CGPoint(x: deviceWidth * 0.5, y: deviceHeight * 0.2)
         boostButton.zPosition = 4
         addChild(boostButton)
-        
-        //backButton.position = BackButtonPosition //CGPoint(x: (self.view?.bounds.width)! * 0.1, y: (self.view?.bounds.height)! * 0.9)
-
 
     }
     func addCoins(){
+        coins = []
         
         let coin1 = Coin(value: 5)
         coin1.position = centerScreen
+        coins.append(coin1)
         addChild(coin1)
     }
-    func updateScore(){
-        //save level score
-        
+    func updateCoinCount(value: Int){
+        //TODO save this new coin count in gameData
+        coinCount += value
+        coinsLabel.text = "Coins: \(coinCount)"
     }
     func beatLevel(beat : Bool){
         
@@ -150,7 +162,7 @@ class GameScene : SKScene {
         
         water_back.run(SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: -50.0, y: 0.0, duration: 2.0), SKAction.moveBy(x: 50.0, y: 0.0, duration: 2.0)])))
     }
-    
+    //Give fi a boost of speed
     func applyBoost() {
         
         if fi.waypoints.count < 2{
@@ -166,6 +178,12 @@ class GameScene : SKScene {
         vector.dx = point2.x < point1.x ? point2.x - point1.x * 10 : point2.x - point1.x * -10
         vector.dy = point2.y < point1.y ? point2.y - point1.y * 10 : point2.y - point1.y * -10
         
+        if vector.dx > maxVector.dx{
+            vector.dx = maxVector.dx
+        }
+        if vector.dy > maxVector.dy{
+            vector.dy = maxVector.dy
+        }
         
         //2 Apply boost
         fi.physicsBody?.applyForce(vector)
@@ -219,11 +237,60 @@ class GameScene : SKScene {
             }
         //})
     }
+    
+    func removeCoinInStyle(node: SKNode){
+        
+        if node.parent != nil {
+            var value = 0
+            //TODO add sounds and particle emitter
+            if coins.contains(node as! Coin){
+                
+                print("removing coin from coins array")
+                
+            }
+            node.removeFromParent()
+            var index = 0
+            for coin in coins {
+                if coin.parent == nil{
+                    value = coin.value
+                    print("value of coin was \(value)")
+                    coins.remove(at: index)
+                }
+                index += 1
+            }
+            //update coin count
+            updateCoinCount(value: value)
+        }
+        
+    }
+
+    func didBegin(_ contact: SKPhysicsContact) {
+        // 1
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+        // 2
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        let contactPoint: CGPoint = contact.contactPoint
+        // 3
+        if firstBody.categoryBitMask == fiCategory && secondBody.categoryBitMask == coinCategory {
+            print("Fi touched the coin")
+            
+            //Remove the coin in style
+            removeCoinInStyle(node: secondBody.node!)
+        }
+    }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for point in points {
             print(point)
         }
-        //drawLines()
+        drawLines()
         
         boostButton.alpha = 1.0
         
@@ -269,6 +336,7 @@ class GameScene : SKScene {
         }
     }
     override func update(_ currentTime: TimeInterval) {
+       
         if fi.position.y < deviceHeight * 0.1{
             loseLevel()
         }

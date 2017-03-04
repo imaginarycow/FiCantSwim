@@ -11,12 +11,12 @@ import SpriteKit
 
 class BackButton : SKSpriteNode {
     
+    var text:String?
+    
     override init(texture: SKTexture?, color: UIColor, size:CGSize) {
         super.init(texture: texture, color: color, size: size)
-        //self.texture = SKTexture(imageNamed: "landing1.png")
-        //self.color = .black
         self.size = CGSize(width: 50.0,height: 30.0)
-        self.zPosition = 5
+        self.zPosition = labelZPosition
         self.addBackButtonLabel()
         
     }

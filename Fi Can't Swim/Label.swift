@@ -19,7 +19,7 @@ class Label : SKLabelNode {
         self.fontColor = fontColor
         self.fontSize = fontSize
         self.fontName = fontName
-        self.zPosition = 5
+        self.zPosition = labelZPosition
     }
     
     required init?(coder aDecoder: NSCoder) {

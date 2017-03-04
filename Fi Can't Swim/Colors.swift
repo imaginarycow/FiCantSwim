@@ -10,6 +10,7 @@ import SpriteKit
 
 let fiColor: UIColor = UIColor(colorLiteralRed: 247/255, green: 82/255, blue: 82/255, alpha: 1.0)
 let custPurple = UIColor(colorLiteralRed: 135/255, green: 0/255, blue: 131/255, alpha: 1.0)
+let custYellow = UIColor(colorLiteralRed: 255/255, green: 253/255, blue: 196/255, alpha: 1.0)
 
 func randomColor() -> UIColor {
     let colors: [UIColor] = [.red, .green, .blue, .magenta, .brown, .black, .yellow, .purple, .gray, .cyan, .orange]

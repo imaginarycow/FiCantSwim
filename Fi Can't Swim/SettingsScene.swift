@@ -14,7 +14,7 @@ class SettingsScene : SKScene {
     let leftArrow = SKSpriteNode(imageNamed: "leftArrow.png")
     let rightArrow = SKSpriteNode(imageNamed: "rightArrow.png")
     let backButton = BackButton()
-    let fiArray: [UIImage] = [#imageLiteral(resourceName: "Fi_Body.png"),#imageLiteral(resourceName: "Fi_Body2.png"),#imageLiteral(resourceName: "Fi_Body3.png"),#imageLiteral(resourceName: "Fi_Body4.png")]
+    let fiArray: [UIImage] = [#imageLiteral(resourceName: "Fi_Body.png"),#imageLiteral(resourceName: "Fi_Body2.png"),#imageLiteral(resourceName: "Fi_Body3.png"),#imageLiteral(resourceName: "Fi_Body4.png"),#imageLiteral(resourceName: "Fi_Body_White.png")]
     let FiSize = CGSize(width: deviceWidth * 0.5, height: deviceWidth * 0.5)
     var selectedFi = SKSpriteNode()
     var currFiIndex = 0
@@ -31,7 +31,7 @@ class SettingsScene : SKScene {
         
         
         backgroundColor = .white
-        title.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.9)
+        title.position = TitlePosition
         title.zPosition = 10
         self.addChild(title)
         
@@ -47,7 +47,7 @@ class SettingsScene : SKScene {
         selectedFi.texture = SKTexture(image: currFi)
 
         selectedFi.size = FiSize
-        selectedFi.position = CGPoint(x: centerX, y: deviceHeight * 0.75)
+        selectedFi.position = CGPoint(x: centerX, y: deviceHeight * 0.30)
         addChild(selectedFi)
         
         let thisSize = CGSize(width: FiSize.width * 0.5, height: FiSize.height * 0.5)

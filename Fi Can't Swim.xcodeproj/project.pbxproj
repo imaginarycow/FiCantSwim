@@ -42,6 +42,9 @@
 		B5C1C48B1E68B12A00C85029 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C48A1E68B12A00C85029 /* Coin.swift */; };
 		B5C1C48D1E68B58A00C85029 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C48C1E68B58A00C85029 /* coin.png */; };
 		B5C1C48F1E68F2B100C85029 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C48E1E68F2B100C85029 /* Colors.swift */; };
+		B5C1C4911E68FBB100C85029 /* Fi_Body_White.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4901E68FBB100C85029 /* Fi_Body_White.png */; };
+		B5C1C4931E6A495E00C85029 /* Zpositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C4921E6A495E00C85029 /* Zpositions.swift */; };
+		B5C1C4951E6A4D1200C85029 /* CollisionDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C4941E6A4D1200C85029 /* CollisionDetection.swift */; };
 		B5F6C7AE1E5C0960007BBB88 /* Fi_Character.png in Resources */ = {isa = PBXBuildFile; fileRef = B5F6C7AD1E5C0960007BBB88 /* Fi_Character.png */; };
 		B5F6C7B01E5C0BC5007BBB88 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = B5F6C7AF1E5C0BC5007BBB88 /* water.png */; };
 		B5FC4AD71E5A52C000339FD5 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC4AD61E5A52C000339FD5 /* SettingsScene.swift */; };
@@ -90,6 +93,9 @@
 		B5C1C48A1E68B12A00C85029 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		B5C1C48C1E68B58A00C85029 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin.png; sourceTree = "<group>"; };
 		B5C1C48E1E68F2B100C85029 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B5C1C4901E68FBB100C85029 /* Fi_Body_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fi_Body_White.png; sourceTree = "<group>"; };
+		B5C1C4921E6A495E00C85029 /* Zpositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Zpositions.swift; sourceTree = "<group>"; };
+		B5C1C4941E6A4D1200C85029 /* CollisionDetection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionDetection.swift; sourceTree = "<group>"; };
 		B5F6C7AD1E5C0960007BBB88 /* Fi_Character.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fi_Character.png; sourceTree = "<group>"; };
 		B5F6C7AF1E5C0BC5007BBB88 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
 		B5FC4AD61E5A52C000339FD5 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
@@ -166,8 +172,10 @@
 		14077DE51E57509200AF3F5B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5C1C4941E6A4D1200C85029 /* CollisionDetection.swift */,
 				B5C1C48E1E68F2B100C85029 /* Colors.swift */,
 				B51038CB1E5F980A00AE79E0 /* NodePositions.swift */,
+				B5C1C4921E6A495E00C85029 /* Zpositions.swift */,
 				14077DF21E5763D700AF3F5B /* Globals.swift */,
 				14077DF01E5763BF00AF3F5B /* SetScale.swift */,
 				B5FC4AD81E5A5C4700339FD5 /* SceneTransition.swift */,
@@ -183,6 +191,7 @@
 		14077DE61E5750A000AF3F5B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B5C1C4901E68FBB100C85029 /* Fi_Body_White.png */,
 				B5C1C48C1E68B58A00C85029 /* coin.png */,
 				B5C1C4861E67C05C00C85029 /* flag.png */,
 				B5C1C4801E67943000C85029 /* Fi_Body2.png */,
@@ -285,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C1C4911E68FBB100C85029 /* Fi_Body_White.png in Resources */,
 				B5C1C4851E67943000C85029 /* Fi_Body4.png in Resources */,
 				B51308151E5E745200349C0C /* landing1.png in Resources */,
 				14077DD71E5738BF00AF3F5B /* Main.storyboard in Resources */,
@@ -312,6 +322,7 @@
 			files = (
 				14077DD21E5738BF00AF3F5B /* SceneReference.swift in Sources */,
 				B5C1C47B1E6630BD00C85029 /* Curve.swift in Sources */,
+				B5C1C4951E6A4D1200C85029 /* CollisionDetection.swift in Sources */,
 				B5C1C4711E6329D200C85029 /* Water.swift in Sources */,
 				14077DD41E5738BF00AF3F5B /* GameViewController.swift in Sources */,
 				14077DCC1E5738BF00AF3F5B /* AppDelegate.swift in Sources */,
@@ -328,6 +339,7 @@
 				B51038C81E5F559700AE79E0 /* Game_Object.swift in Sources */,
 				B5C1C4891E68AFC100C85029 /* LoseScene.swift in Sources */,
 				B5C1C48F1E68F2B100C85029 /* Colors.swift in Sources */,
+				B5C1C4931E6A495E00C85029 /* Zpositions.swift in Sources */,
 				B51038CC1E5F980A00AE79E0 /* NodePositions.swift in Sources */,
 				B5FC4AE11E5C7ADD00339FD5 /* Level.swift in Sources */,
 				14077DF11E5763BF00AF3F5B /* SetScale.swift in Sources */,

@@ -19,10 +19,13 @@ class Slide: SKShapeNode {
         self.lineWidth = 8
         self.lineCap = .round
         self.strokeColor = randomColor()
-        self.zPosition = 5
+        self.zPosition = slideZPosition
         self.name = name
         self.physicsBody?.mass = 1.0
         self.physicsBody = SKPhysicsBody(edgeChainFrom: path)
+        self.physicsBody?.usesPreciseCollisionDetection = true
+        self.physicsBody?.categoryBitMask = slideCategory
+        self.physicsBody?.collisionBitMask = fiCategory
 
     }
     

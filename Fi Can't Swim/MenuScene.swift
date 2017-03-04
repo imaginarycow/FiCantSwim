@@ -20,7 +20,7 @@ class MenuScene: SKScene {
         
         loadGameData()
         
-        backgroundColor = .white
+        backgroundColor = custYellow
         label.position = CGPoint(x: TitlePosition.x, y: TitlePosition.y)
         addChild(label)
         

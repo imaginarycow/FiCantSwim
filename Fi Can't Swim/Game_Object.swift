@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-let characterSize = CGSize(width: 60.0, height: 60.0)
+
 let landingSize: CGSize = CGSize(width: 70.0, height: 20.0)
 
 class GameObject: SKSpriteNode {
@@ -21,14 +21,14 @@ class GameObject: SKSpriteNode {
         super.init(texture: texture, color: color, size: size)
         
         if type == .character{
-            self.physicsBody = SKPhysicsBody(circleOfRadius: characterSize.width * 0.5)
+            
 
         }
         else {
             self.physicsBody = SKPhysicsBody(texture: texture!, size: size)
             self.physicsBody?.affectedByGravity = false
             self.physicsBody?.isDynamic = isDynamic
-            self.zPosition = 2
+            self.zPosition = 4
         }
         //self.physicsBody?.isDynamic = isDynamic
     }

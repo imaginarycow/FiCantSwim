@@ -17,7 +17,6 @@ class Water : SKSpriteNode {
         super.init(texture: texture, color: color, size: size)
         self.texture = SKTexture(imageNamed: "water.png")
         self.size = waterSize
-        self.zPosition = 5
         
     }
     

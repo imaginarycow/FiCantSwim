@@ -20,6 +20,7 @@ let NumberOfLevels: Int = 35
 let NumberOfIconsPerRow:CGFloat = 5
 let NumberOfRows: Int = NumberOfLevels / Int(NumberOfIconsPerRow)
 
+let maxVector = CGVector(dx: 300.0, dy: 300.0)
 
 
 

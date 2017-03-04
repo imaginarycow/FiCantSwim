@@ -14,16 +14,25 @@ var coins: [Coin] = []
 class Coin : SKSpriteNode {
     
     var value: Int!
+    var grabbed = false
     
     init(value: Int, texture: SKTexture? = SKTexture(imageNamed: "coin.png"), color: UIColor = .clear, size: CGSize = coinSize) {
         super.init(texture: texture, color: color, size: size)
+        self.value = value
+        self.physicsBody = SKPhysicsBody(circleOfRadius: coinSize.width/2)
+        self.zPosition = coinZPosition
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.isDynamic = false
+        self.physicsBody?.usesPreciseCollisionDetection = true
+        self.physicsBody?.categoryBitMask = coinCategory
+        self.physicsBody?.contactTestBitMask = fiCategory
         addLabel(value: value)
         
     }
     
     func addLabel(value: Int){
         let label = SKLabelNode(text: "\(value)")
-        label.zPosition = self.zPosition + 1
+        label.zPosition = coinZPosition + 1
         label.fontSize = coinSize.width * 0.65
         label.fontName = defaultFont
         label.fontColor = custPurple

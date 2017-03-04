@@ -9,6 +9,7 @@
 import SpriteKit
 
 var currFi = #imageLiteral(resourceName: "Fi_Body.png")
+let characterSize = CGSize(width: 60.0, height: 60.0)
 
 class Character :  GameObject{
     
@@ -18,9 +19,14 @@ class Character :  GameObject{
     
     override init(type: ObjectType = .character, texture: SKTexture? = SKTexture(image: currFi), color: UIColor = .white, size: CGSize = characterSize, isDynamic: Bool = true) {
         super.init(type: type, texture: texture, size: size)
-        self.zPosition = 2
+        self.zPosition = characterZPosition
+        self.physicsBody = SKPhysicsBody(circleOfRadius: characterSize.width * 0.5)
         self.physicsBody?.affectedByGravity = true
         self.physicsBody?.restitution = 0.2
+        self.physicsBody?.usesPreciseCollisionDetection = true
+        self.physicsBody?.categoryBitMask = fiCategory
+        self.physicsBody?.contactTestBitMask = coinCategory | flagCategory | canonCategory
+        self.physicsBody?.collisionBitMask = slideCategory | canonCategory
         
     }
     
