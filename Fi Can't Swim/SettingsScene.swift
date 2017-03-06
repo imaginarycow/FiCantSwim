@@ -14,61 +14,122 @@ class SettingsScene : SKScene {
     let leftArrow = SKSpriteNode(imageNamed: "leftArrow.png")
     let rightArrow = SKSpriteNode(imageNamed: "rightArrow.png")
     let backButton = BackButton()
-    let fiArray: [UIImage] = [#imageLiteral(resourceName: "Fi_Body.png"),#imageLiteral(resourceName: "Fi_Body2.png"),#imageLiteral(resourceName: "Fi_Body3.png"),#imageLiteral(resourceName: "Fi_Body4.png"),#imageLiteral(resourceName: "Fi_Body_White.png")]
     let FiSize = CGSize(width: deviceWidth * 0.5, height: deviceWidth * 0.5)
-    var selectedFi = SKSpriteNode()
-    var currFiIndex = 0
-    var prevIndex = 3
-    var nextIndex = 1
-    let prevFi = SKSpriteNode()
-    let nextFi = SKSpriteNode()
+    var thisSize = CGSize()
+    
+    let selectableFis: [Character] = [fi1,fi2,fi3,fi4,fi5,fi6]
+    var prevIndex = 0
+    var nextIndex = 0
+    
+    var centerPoint: CGPoint = CGPoint(x: centerX, y: deviceHeight * 0.30)
+    var prevPoint = CGPoint()
+    var nextPoint = CGPoint()
+    var farRightPoint = CGPoint()
+    var farLeftPoint = CGPoint()
+    var prevFi = SKSpriteNode()
+    var nextFi = SKSpriteNode()
+    var centerFi = SKSpriteNode()
+    let centerPrice = SKLabelNode()
+    
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        print("curr fi index: \(currFiIndex)")
+        
+        thisSize = CGSize(width: FiSize.width * 0.5, height: FiSize.height * 0.5)
+        centerPoint = CGPoint(x: centerX, y: deviceHeight * 0.30)
+        prevPoint = CGPoint(x: centerPoint.x - FiSize.width * 1.2, y: (centerPoint.y))
+        nextPoint = CGPoint(x: centerPoint.x + FiSize.width * 1.2, y: (centerPoint.y))
+        farLeftPoint = CGPoint(x: deviceWidth * 1.25, y: centerPoint.y)
+        farRightPoint = CGPoint(x: 0.0 - deviceWidth * 0.25, y: centerPoint.y)
+        
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
         
         addFiSelector()
         addButtons()
-        
         
         backgroundColor = .white
         title.position = TitlePosition
         title.zPosition = 10
         self.addChild(title)
         
-        
-        
     }
     override func willMove(from view: SKView) {
         self.removeAllChildren()
     }
+    //get indexes for prev and next characters
+    func getIndexes() {
+        
+        if currFiIndex == -1 {
+            currFiIndex = characterArray.count - 1
+            prevIndex = currFiIndex - 1
+            nextIndex = 0
+        }
+        else if currFiIndex == characterArray.count {
+            currFiIndex = 0
+            prevIndex = characterArray.count - 1
+            nextIndex = currFiIndex + 1
+        }
+        else if currFiIndex == characterArray.count - 1 {
+            nextIndex = 0
+            prevIndex = currFiIndex - 1
+        }
+        else if currFiIndex == 0 {
+            nextIndex = currFiIndex + 1
+            prevIndex = characterArray.count - 1
+        }
+        else {
+            nextIndex = currFiIndex + 1
+            prevIndex = currFiIndex - 1
+        }
+        print("prev fi index: \(prevIndex)")
+        print("curr fi index: \(currFiIndex)")
+        print("next fi index: \(nextIndex)")
+        print("_______________________")
+        currFi = characterArray[currFiIndex]
+    }
     
     func addFiSelector(){
-        selectedFi.removeFromParent()
-        selectedFi.texture = SKTexture(image: currFi)
-
-        selectedFi.size = FiSize
-        selectedFi.position = CGPoint(x: centerX, y: deviceHeight * 0.30)
-        addChild(selectedFi)
+        //get corrected indexes
+        getIndexes()
         
-        let thisSize = CGSize(width: FiSize.width * 0.5, height: FiSize.height * 0.5)
-        prevFi.removeFromParent()
-        nextFi.removeFromParent()
-        prevFi.texture = SKTexture(image: fiArray[prevIndex])
-        nextFi.texture = SKTexture(image: fiArray[nextIndex])
-        prevFi.size = thisSize
-        nextFi.size = thisSize
-        prevFi.position = CGPoint(x: selectedFi.position.x - selectedFi.size.width, y: selectedFi.position.y)
-        nextFi.position = CGPoint(x: selectedFi.position.x + selectedFi.size.width, y: selectedFi.position.y)
-        prevFi.zPosition = selectedFi.zPosition + 1
-        nextFi.zPosition = selectedFi.zPosition + 1
+        //2 remove characters
+        self.removeChildren(in: [centerFi, prevFi, nextFi, centerPrice])
+        //centerFi.removeFromParent()
+        //prevFi.removeFromParent()
+        //nextFi.removeFromParent()
+        
+        //reset characters
+        centerFi.texture = SKTexture(imageNamed: characterSkins[currFiIndex])
+        centerFi.size = FiSize
+        centerFi.position = centerPoint
+        addChild(centerFi)
+        
+        centerPrice.text = String("\(currFi.price)")
+        centerPrice.fontSize = 24.0
+        centerPrice.fontColor = .red
+        centerPrice.position = CGPoint(x: centerPoint.x, y: centerPoint.y - FiSize.height * 0.75)
+        addChild(centerPrice)
+        
+        //size for prev and next characters, smaller than center fi
+        
+        
+        prevFi.texture = SKTexture(imageNamed: characterSkins[prevIndex])
+        nextFi.texture = SKTexture(imageNamed: characterSkins[nextIndex])
+        prevFi.size = FiSize
+        nextFi.size = FiSize
+        prevFi.position = prevPoint
+        nextFi.position = nextPoint
+        prevFi.zPosition = (centerFi.zPosition) + 1
+        nextFi.zPosition = (centerFi.zPosition) + 1
         addChild(prevFi)
         addChild(nextFi)
     }
     
     func addButtons() {
         let arrowSize = CGSize(width: 50.0, height: 50.0)
-        leftArrow.position = CGPoint(x: deviceWidth * 0.25, y: selectedFi.position.y - FiSize.width/2)
-        rightArrow.position = CGPoint(x: deviceWidth * 0.75, y: selectedFi.position.y - FiSize.width/2)
+        leftArrow.position = CGPoint(x: deviceWidth * 0.25, y: (centerFi.position.y) - FiSize.width/2)
+        rightArrow.position = CGPoint(x: deviceWidth * 0.75, y: (centerFi.position.y) - FiSize.width/2)
         leftArrow.size = arrowSize
         rightArrow.size = arrowSize
         addChild(leftArrow)
@@ -79,45 +140,34 @@ class SettingsScene : SKScene {
     }
     
     func cycleCharacters(cycleRight: Bool) {
-        //cycle characters right
-        if !cycleRight {
-            currFiIndex += 1
-            prevIndex += 1
-            nextIndex += 1
-            if currFiIndex == fiArray.count{
-                currFiIndex = 0
-            }
-            if prevIndex == fiArray.count {
-                prevIndex = 0
-            }
-            if nextIndex == fiArray.count {
-                nextIndex = 0
-            }
-        }
         //cycle characters left
-        if cycleRight {
+        if !cycleRight {
+            moveCharactersLeft()
             currFiIndex -= 1
-            prevIndex -= 1
-            nextIndex -= 1
-            if currFiIndex < 0{
-                currFiIndex = fiArray.count-1
-            }
-            if prevIndex < 0 {
-                prevIndex = fiArray.count-1
-            }
-            if nextIndex < 0 {
-                nextIndex = fiArray.count-1
-            }
         }
-        
-        currFi = fiArray[currFiIndex]
+        //cycle characters right
+        if cycleRight {
+            moveCharactersRight()
+            currFiIndex += 1
+        }
+        //getIndexes()
         addFiSelector()
+    }
+    func moveCharactersRight(){
+        nextFi.run(SKAction.move(to: farRightPoint, duration: 0.5))
+        centerFi.run(SKAction.move(to: nextPoint, duration: 0.5))
+        prevFi.run(SKAction.move(to: centerPoint, duration: 0.5))
+    }
+    func moveCharactersLeft(){
+        nextFi.run(SKAction.move(to: centerPoint, duration: 0.5))
+        centerFi.run(SKAction.move(to: prevPoint, duration: 0.5))
+        prevFi.run(SKAction.move(to: farLeftPoint, duration: 0.5))
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         leftArrow.alpha = 1.0
         rightArrow.alpha = 1.0
-        selectedFi.alpha = 1.0
+        centerFi.alpha = 1.0
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -128,16 +178,18 @@ class SettingsScene : SKScene {
             
             if leftArrow.contains(location) {
                 leftArrow.alpha = 0.5
-                selectedFi.alpha = 0.4
+                centerFi.alpha = 0.4
                 cycleCharacters(cycleRight: false)
             }
             if rightArrow.contains(location){
                 rightArrow.alpha = 0.5
-                selectedFi.alpha = 0.4
+                centerFi.alpha = 0.4
                 cycleCharacters(cycleRight: true)
             }
             
             if backButton.contains(location){
+                //save new currFi to gameData
+                
                 //go to game scene
                 sceneTransition(initScene: self, nextScene: MenuScene())
             }

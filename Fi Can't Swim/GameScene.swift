@@ -18,10 +18,10 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     let coinsLabel = Label(label: "Coins \(coinCount)", fontSize: 15.0)
     let boostButton = Label(label: "Boost", fontSize: 20.0)
     let backButton = BackButton()
+    let restartLevelButton = Label(label: "Restart Level", fontSize: 20.0)
     
     let water_front = Water()
     let water_back = Water()
-    let fi = Character(type: .character, texture: SKTexture(image: currFi), color: .white, size: characterSize, isDynamic: true)
     let startingPlatform = GameObject(texture: SKTexture(image: #imageLiteral(resourceName: "landing1.png")), size: landingSize)
     let landingPlatform = GameObject(texture: SKTexture(image: #imageLiteral(resourceName: "landing1.png")), size: landingSize)
 
@@ -33,8 +33,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     let finishFlag = SKSpriteNode(imageNamed: "flag.png")
     
     
-    
-    let restartLevelButton = Label(label: "Restart Level", fontSize: 20.0)
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -55,10 +53,11 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         //set platform and character positions in loadLevel
         loadLevel(level: currLevel, parent: self)
         addChild(startingPlatform)
-        addChild(fi)
         startingPlatform.position = startP
         landingPlatform.position = catcherPosition
-        fi.position = characterP
+        
+        setFiInScene()
+        
         addCatcher()
         addCoins()
         
@@ -68,7 +67,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         delay(delay: 3.0, closure: {
             print("applying force after delay")
             self.startingPlatform.zRotation = -(CGFloat)(45.degreesToRadians)
-            self.fi.physicsBody?.applyForce(CGVector(dx: 300.0, dy: 0.0))
+            currFi.physicsBody?.applyForce(CGVector(dx: 300.0, dy: 0.0))
         })
         
         loadWater()
@@ -78,8 +77,17 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
     }
     override func willMove(from view: SKView) {
+        currFi.removeFromParent()
         self.removeAllActions()
         self.removeAllChildren()
+    }
+    
+    func setFiInScene() {
+        print("curr fi index: \(currFiIndex)")
+        resetCharacter(node: currFi)
+        currFi.size = characterSize
+        currFi.position = characterP
+        addChild(currFi)
     }
     
     func addCatcher(){
@@ -88,7 +96,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         addChild(catcher)
         finishFlag.size = CGSize(width: curveSize.width * 1.25, height: curveSize.height * 1.25)
         finishFlag.position = CGPoint(x: catcherPosition.x + finishFlag.size.width/2, y: catcherPosition.y)
-        finishFlag.zPosition = fi.zPosition - 1
+        finishFlag.zPosition = (currFi.zPosition) - 1
         addChild(finishFlag)
     }
     
@@ -136,7 +144,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             sceneTransition(initScene: self, nextScene: WinScene())
         }
         else {
-            sceneTransition(initScene: self, nextScene: GameScene())
+            sceneTransition(initScene: self, nextScene: MapScene())
         }
         
     }
@@ -147,11 +155,11 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     func loadWater(){
         
         water_front.position = CGPoint(x: centerX, y: 0.0 + water_front.size.height/2)
-        water_front.zPosition = fi.zPosition + 1
+        water_front.zPosition = (currFi.zPosition) + 1
         addChild(water_front)
         
         water_back.position = CGPoint(x: centerX, y: 0.0 + water_front.size.height * 0.65)
-        water_back.zPosition = fi.zPosition - 1
+        water_back.zPosition = (currFi.zPosition) - 1
         water_back.alpha = 0.6
         addChild(water_back)
         
@@ -165,13 +173,13 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     //Give fi a boost of speed
     func applyBoost() {
         
-        if fi.waypoints.count < 2{
+        if currFi.waypoints.count < 2{
             return
         }
         
-        let pointsCount = fi.waypoints.count
-        let point2 = fi.waypoints[pointsCount-1]
-        let point1 = fi.waypoints[pointsCount-2]
+        let pointsCount = currFi.waypoints.count
+        let point2 = currFi.waypoints[pointsCount-1]
+        let point1 = currFi.waypoints[pointsCount-2]
         
         //1 Get vector for boost from fi.waypoints
         var vector = CGVector()
@@ -186,7 +194,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         }
         
         //2 Apply boost
-        fi.physicsBody?.applyForce(vector)
+        currFi.physicsBody?.applyForce(vector)
     }
     //create the slide path from points made by user dragging finger on screen
     func createPath() -> CGPath? {
@@ -337,10 +345,10 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     }
     override func update(_ currentTime: TimeInterval) {
        
-        if fi.position.y < deviceHeight * 0.1{
+        if currFi.position.y < deviceHeight * 0.1{
             loseLevel()
         }
-        fi.waypoints.append(fi.position)
+        currFi.waypoints.append(currFi.position)
     }
 
     

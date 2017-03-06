@@ -17,11 +17,9 @@ let BackButtonPosition = CGPoint(x: UIScreen.main.bounds.width * 0.1, y: UIScree
 let ScoreLabelPosition = CGPoint(x: UIScreen.main.bounds.width * 0.85, y: UIScreen.main.bounds.height * 0.95)
 let LevelLabelPosition = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height * 0.95)
 
-
 var startP = CGPoint()
 var catcherPosition = CGPoint()
 var characterP = CGPoint()
-
 
 //beginning platform position
 var startPosition1 = CGPoint(x: deviceWidth * 0.1, y: deviceHeight * 0.8)
@@ -30,7 +28,15 @@ var startPosition3 = CGPoint(x: deviceWidth * 0.1, y: deviceHeight * 0.2)
 var startPosition4 = CGPoint(x: deviceWidth * 0.9, y: deviceHeight * 0.2)
 
 //fi beginning position based on beginning platform position
-
 var catcherPosition1 = CGPoint(x: deviceWidth * 0.99 - curveSize.width, y: deviceHeight * 0.2)
 var catcherPosition2 = CGPoint(x: deviceWidth * 0.1, y: deviceHeight * 0.2)
 var catcherPosition3 = CGPoint(x: deviceWidth * 0.5, y: deviceHeight * 0.2)
+
+
+//ZPositions
+let backgroundZPosition:CGFloat = 1
+let labelZPosition:CGFloat = 2
+let characterZPosition:CGFloat = 5
+let slideZPosition:CGFloat = 4
+let coinZPosition:CGFloat = 5
+let platformZPosition:CGFloat = 5

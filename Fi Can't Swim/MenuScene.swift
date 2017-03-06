@@ -20,16 +20,8 @@ class MenuScene: SKScene {
         
         loadGameData()
         
-        backgroundColor = custYellow
-        label.position = CGPoint(x: TitlePosition.x, y: TitlePosition.y)
-        addChild(label)
+        setScene()
         
-        settingsButton.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.4)
-        addChild(settingsButton)
-        playButton.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.5)
-        addChild(playButton)
-        
-        loadBackground()
     }
     
     override func willMove(from view: SKView) {
@@ -37,9 +29,19 @@ class MenuScene: SKScene {
         self.removeAllChildren()
     }
     
-    func loadGameData(){
+    func setScene(){
         
+        backgroundColor = custYellow
+        label.position = CGPoint(x: TitlePosition.x, y: TitlePosition.y)
+        addChild(label)
         
+        settingsButton.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.4)
+        addChild(settingsButton)
+        
+        playButton.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.5)
+        addChild(playButton)
+        
+        loadBackground()
     }
     
     func loadBackground() {
