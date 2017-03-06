@@ -35,7 +35,7 @@ class Coin : SKSpriteNode {
         label.zPosition = coinZPosition + 1
         label.fontSize = coinSize.width * 0.65
         label.fontName = defaultFont
-        label.fontColor = custPurple
+        label.fontColor = custBlue
         label.position = CGPoint(x: 0.0, y: 0.0 - label.fontSize/2)
         self.addChild(label)
     }

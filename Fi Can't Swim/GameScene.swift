@@ -37,7 +37,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        backgroundColor = custYellow
+        setBackground()
         buildLabels()
         
         // 1
@@ -82,6 +82,15 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.removeAllChildren()
     }
     
+    func setBackground() {
+        
+        let bg = SKSpriteNode(imageNamed: "Sky.png")
+        bg.size = CGSize(width: deviceWidth, height: deviceHeight)
+        bg.position = centerScreen
+        bg.zPosition = 1
+        addChild(bg)
+    }
+    
     func setFiInScene() {
         print("curr fi index: \(currFiIndex)")
         resetCharacter(node: currFi)
@@ -122,7 +131,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     func addCoins(){
         coins = []
         
-        let coin1 = Coin(value: 5)
+        let coin1 = Coin(value: 7)
         coin1.position = centerScreen
         coins.append(coin1)
         addChild(coin1)

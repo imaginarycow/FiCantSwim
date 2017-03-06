@@ -30,15 +30,22 @@ class MenuScene: SKScene {
     }
     
     func setScene(){
+
+        let bg = SKSpriteNode(imageNamed: "Sky.png")
+        bg.size = CGSize(width: deviceWidth, height: deviceHeight)
+        bg.position = centerScreen
+        bg.zPosition = 1
+        addChild(bg)
         
-        backgroundColor = custYellow
         label.position = CGPoint(x: TitlePosition.x, y: TitlePosition.y)
         addChild(label)
         
         settingsButton.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.4)
+        settingsButton.zPosition = 3
         addChild(settingsButton)
         
         playButton.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.5)
+        playButton.zPosition = 3
         addChild(playButton)
         
         loadBackground()
@@ -49,6 +56,7 @@ class MenuScene: SKScene {
         let height = deviceHeight * 0.7
         let width = deviceHeight / ratio
         let fi = SKSpriteNode(imageNamed: "Fi_Character.png")
+        fi.zPosition = 2
         addChild(fi)
         fi.position = CGPoint(x: centerX, y: centerY)
         fi.size = CGSize(width: width, height: height)
@@ -56,6 +64,7 @@ class MenuScene: SKScene {
         let water = SKSpriteNode(imageNamed: "water.png")
         water.size = CGSize(width: deviceWidth * 2, height: deviceHeight / 5)
         water.position = CGPoint(x: centerX, y: 0.0 + water.size.height/2)
+        water.zPosition = 2
         addChild(water)
         
         water.run(SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: 50.0, y: 0.0, duration: 2.0), SKAction.moveBy(x: -50.0, y: 0.0, duration: 2.0)])))
