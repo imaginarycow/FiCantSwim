@@ -10,7 +10,7 @@ import SpriteKit
 
 class MapScene : SKScene {
     
-    let title = Label(label: "Level Select", fontColor: .red, fontSize: 30.0)
+    let title = Label(label: "Level Select", fontColor: fiColor, fontSize: 30.0)
     let backButton = BackButton()
     var levelIcons: [LevelIcon] = []
     var levelsBuilt = false
@@ -19,7 +19,15 @@ class MapScene : SKScene {
         super.didMove(to: view)
         
         deviceWidth = self.view!.bounds.size.width
-        backgroundColor = .white
+        //backgroundColor = .white
+        
+        let bg = SKSpriteNode(imageNamed: "Sky.png")
+        bg.size = CGSize(width: deviceWidth, height: deviceHeight)
+        bg.position = centerScreen
+        bg.zPosition = backgroundZPosition
+        addChild(bg)
+        
+        
         title.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.90)
         title.zPosition = 10
         self.addChild(title)
@@ -61,10 +69,11 @@ class MapScene : SKScene {
             else {
                 icon = LevelIcon(levelNum: index)
             }
-            
+            icon.zPosition = labelZPosition
             levelIcons.append(icon)
-            let label = Label(label: String(icon.lvlNum), fontColor: .yellow, fontSize: 15.0)
+            let label = Label(label: String(icon.lvlNum), fontColor: .white, fontSize: 15.0)
             icon.position = CGPoint(x: 0.0 + (iconSpace * count) - (iconSpace / 2), y: deviceHeight * 0.92 - iconSpace * row)
+            
             if count.truncatingRemainder(dividingBy: 2) == 0 {
                 icon.position = CGPoint(x: 0.0 + (iconSpace * count) - (iconSpace / 2), y: deviceHeight * 0.92 - iconSpace * row - iconSpace/2)
             }
@@ -104,6 +113,7 @@ class MapScene : SKScene {
                 let linearShapeNode = SKShapeNode(points: &points, count: points.count)
                 linearShapeNode.strokeColor = icon2.unlocked ? .green : fiColor
                 linearShapeNode.lineWidth = 5.0
+                linearShapeNode.zPosition = labelZPosition
                 addChild(linearShapeNode)
                 
                 index += 1

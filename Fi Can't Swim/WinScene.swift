@@ -10,7 +10,7 @@ import SpriteKit
 
 class WinScene : SKScene {
     
-    let title = Label(label: "#Winning", fontSize: 30.0)
+    let title = Label(label: "#Winner", fontSize: 30.0)
     let homeButton = Label(label: "Return to Home", fontSize: 20.0)
     
     override func didMove(to view: SKView) {

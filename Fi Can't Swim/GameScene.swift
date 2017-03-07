@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 
 class GameScene : SKScene, SKPhysicsContactDelegate {
@@ -16,7 +17,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     let title = Label(label: "Game", fontSize: 30.0)
     let levelLabel = Label(label: "Level \(currLevel)", fontSize: 20.0)
     let coinsLabel = Label(label: "Coins \(coinCount)", fontSize: 15.0)
-    let boostButton = Label(label: "Boost", fontSize: 20.0)
+    let boostButton = SKSpriteNode(imageNamed: "Level_Icon.png")
     let backButton = BackButton()
     let restartLevelButton = Label(label: "Restart Level", fontSize: 20.0)
     
@@ -31,7 +32,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     var path :CGPath!
     var catcher: SKShapeNode!
     let finishFlag = SKSpriteNode(imageNamed: "flag.png")
-    
+    var flagTouched = false
     
     
     override func didMove(to view: SKView) {
@@ -39,6 +40,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         setBackground()
         buildLabels()
+        
         
         // 1
         let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -103,9 +105,14 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         catcher = Curve(name: "curve", centerPoint: catcherPosition)
         addChild(catcher)
+        
         finishFlag.size = CGSize(width: curveSize.width * 1.25, height: curveSize.height * 1.25)
         finishFlag.position = CGPoint(x: catcherPosition.x + finishFlag.size.width/2, y: catcherPosition.y)
         finishFlag.zPosition = (currFi.zPosition) - 1
+        finishFlag.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "flag.png"), size: finishFlag.size)
+        finishFlag.physicsBody?.usesPreciseCollisionDetection = true
+        finishFlag.physicsBody?.categoryBitMask = flagCategory
+        finishFlag.physicsBody?.contactTestBitMask = fiCategory
         addChild(finishFlag)
     }
     
@@ -123,9 +130,14 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         backButton.position = BackButtonPosition
         self.addChild(backButton)
         
-        boostButton.position = CGPoint(x: deviceWidth * 0.5, y: deviceHeight * 0.2)
-        boostButton.zPosition = 4
+        
+        boostButton.position = CGPoint(x: deviceWidth * 0.5, y: deviceHeight * 0.01 + characterSize.height/2)
+        boostButton.size = characterSize
+        boostButton.zPosition = 7
         addChild(boostButton)
+        let boostButtonLabel = Label(label: "Boost", fontSize: boostButton.size.height/3)
+        boostButtonLabel.fontColor = .white
+        boostButton.addChild(boostButtonLabel)
 
     }
     func addCoins(){
@@ -142,7 +154,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         coinsLabel.text = "Coins: \(coinCount)"
     }
     func beatLevel(beat : Bool){
-        
+        print("Fi beat level")
         if beat {
             //count points
             currLevel += 1
@@ -153,7 +165,38 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             sceneTransition(initScene: self, nextScene: WinScene())
         }
         else {
-            sceneTransition(initScene: self, nextScene: MapScene())
+            showBeatLevelAnimation()
+        }
+        
+    }
+    func checkForLevelBeat() {
+        updateFiMovement()
+        print("Checking for level beat")
+        if currFi.waypoints.count < 2 {
+            return
+        }
+        if currFi.isMoving == false {
+            beatLevel(beat: true)
+        }
+    }
+    func showBeatLevelAnimation() {
+        
+        let winLabel = SKLabelNode(text: "#Winner")
+        winLabel.fontColor = custYellow
+        winLabel.fontSize = 32.0
+        winLabel.fontName = defaultFont
+        winLabel.position = centerScreen
+        winLabel.zPosition = 10
+        addChild(winLabel)
+    }
+    
+    func updateFiMovement() {
+        //compare fi waypoints to see if fi is still moving
+        let point1 = currFi.waypoints[currFi.waypoints.count - 1]
+        let point2 = currFi.waypoints[currFi.waypoints.count - 2]
+        
+        if point2.x <= point1.x + 5 {
+            currFi.isMoving = false
         }
         
     }
@@ -302,6 +345,11 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             //Remove the coin in style
             removeCoinInStyle(node: secondBody.node!)
         }
+        if firstBody.categoryBitMask == fiCategory && secondBody.categoryBitMask == flagCategory || firstBody.categoryBitMask == flagCategory && secondBody.categoryBitMask == fiCategory {
+            print("Fi touched the flag")
+            
+            flagTouched = true
+        }
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for point in points {
@@ -358,6 +406,13 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             loseLevel()
         }
         currFi.waypoints.append(currFi.position)
+        if currFi.waypoints.count > 10 && flagTouched == false {
+            currFi.isMoving = true
+            
+        }
+        if flagTouched == true{
+            checkForLevelBeat()
+        }
     }
 
     

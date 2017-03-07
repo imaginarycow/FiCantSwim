@@ -14,13 +14,23 @@ class MenuScene: SKScene {
     let label = Label(label: "Fi Can't Swim", fontColor: fiColor, fontSize: 40.0)
     let settingsButton = Label(label: "Settings", fontColor: .white, fontSize: 30.0)
     let playButton = Label(label: "Play", fontColor: .white, fontSize: 30.0)
-    
+    let fi = SKSpriteNode(imageNamed: characterSkins[currFiIndex])
+    var showAnimation = true
+    let height = deviceWidth * 0.75
+    let width = deviceWidth * 0.75
+    var size1 = CGSize()
+    var size2 = CGSize()
+    var size3 = CGSize()
     
     override func didMove(to view: SKView) {
         
-        loadGameData()
+        size1 = CGSize(width: width/3, height: height/3)
+        size2 = CGSize(width: width/2, height: height/2)
+        size3 = CGSize(width: width, height: height)
         
+        loadGameData()
         setScene()
+        setFiInScene()
         
     }
     
@@ -29,7 +39,57 @@ class MenuScene: SKScene {
         self.removeAllChildren()
     }
     
+    func setFiInScene() {
+        
+        if showAnimation {
+            showBeginningAnimation()
+        }
+        else {
+            //Just set fi in position
+            fi.size = size3
+            fi.position = centerScreen
+            fi.zPosition = characterZPosition
+            addChild(fi)
+        }
+    }
+    
+    func showBeginningAnimation() {
+        
+        fi.zPosition = characterZPosition
+        addChild(fi)
+        let duration = 1.0
+        let actionA = SKAction.run {
+            //fi rolls right, size1
+            self.fi.size = self.size1
+            self.fi.position = CGPoint(x: 0.0 - self.fi.size.width * 1.1, y: deviceHeight * 0.8)
+            self.fi.run(SKAction.move(to: CGPoint(x: deviceWidth * 1.2, y: self.fi.position.y), duration: duration))
+            self.fi.run(SKAction.rotate(byAngle: CGFloat(-360.degreesToRadians), duration: duration))
+        }
+        
+        let actionB = SKAction.run {
+            //fi rolls left, size2
+            self.fi.size = self.size2
+            self.fi.position = CGPoint(x: deviceWidth * 1.2, y: deviceHeight * 0.65)
+            self.fi.run(SKAction.move(to: CGPoint(x: 0.0 - deviceWidth * 1.2, y: self.fi.position.y), duration: duration))
+            self.fi.run(SKAction.rotate(byAngle: CGFloat(360.degreesToRadians), duration: duration))
+        }
+        
+        let actionC = SKAction.run {
+            //fi rolls right and stops, size3
+            self.fi.size = self.size3
+            self.fi.zRotation = -(CGFloat)(180.degreesToRadians)
+            self.fi.position = CGPoint(x: self.fi.position.x, y: centerY)
+            self.fi.run(SKAction.move(to: centerScreen, duration: duration))
+            self.fi.run(SKAction.rotate(byAngle: CGFloat(-180.degreesToRadians), duration: duration))
+
+        }
+        let delay = SKAction.wait(forDuration: duration * 1.2)
+        fi.run(SKAction.sequence([actionA, delay, actionB, delay, actionC]))
+    }
+    
     func setScene(){
+        
+        playSound()
 
         let bg = SKSpriteNode(imageNamed: "Sky.png")
         bg.size = CGSize(width: deviceWidth, height: deviceHeight)
@@ -40,26 +100,18 @@ class MenuScene: SKScene {
         label.position = CGPoint(x: TitlePosition.x, y: TitlePosition.y)
         addChild(label)
         
-        settingsButton.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.4)
-        settingsButton.zPosition = 3
+        settingsButton.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.35)
+        settingsButton.zPosition = characterZPosition + 1
         addChild(settingsButton)
         
-        playButton.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.5)
-        playButton.zPosition = 3
+        playButton.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.43)
+        playButton.zPosition = characterZPosition + 1
         addChild(playButton)
         
         loadBackground()
     }
     
     func loadBackground() {
-        
-        let height = deviceHeight * 0.7
-        let width = deviceHeight / ratio
-        let fi = SKSpriteNode(imageNamed: "Fi_Character.png")
-        fi.zPosition = 2
-        addChild(fi)
-        fi.position = CGPoint(x: centerX, y: centerY)
-        fi.size = CGSize(width: width, height: height)
         
         let water = SKSpriteNode(imageNamed: "water.png")
         water.size = CGSize(width: deviceWidth * 2, height: deviceHeight / 5)

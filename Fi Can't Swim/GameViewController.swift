@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
         SKView.showsNodeCount = true
         SKView.showsPhysics = true
         SKView.presentScene(scene)
-        //printFonts()
+        printFonts()
         
     }
 

@@ -49,6 +49,11 @@
 		B5C1C49D1E6B636100C85029 /* Fi_Body5.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C49C1E6B636100C85029 /* Fi_Body5.png */; };
 		B5C1C49F1E6B65F900C85029 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C49E1E6B65F900C85029 /* Firebase.swift */; };
 		B5C1C4A11E6C6D2800C85029 /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4A01E6C6D2800C85029 /* rightArrow.png */; };
+		B5C1C4A31E6D293000C85029 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C4A21E6D293000C85029 /* SoundPlayer.swift */; };
+		B5C1C4A61E6D2E3400C85029 /* Ipsi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4A51E6D2E3400C85029 /* Ipsi.mp3 */; };
+		B5C1C4AA1E6E566700C85029 /* arcade.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4A91E6E566700C85029 /* arcade.mp3 */; };
+		B5C1C4AC1E6E593000C85029 /* fish1.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4AB1E6E593000C85029 /* fish1.png */; };
+		B5C1C4AE1E6E635500C85029 /* FugazOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4AD1E6E616300C85029 /* FugazOne-Regular.ttf */; };
 		B5F6C7AE1E5C0960007BBB88 /* Fi_Character.png in Resources */ = {isa = PBXBuildFile; fileRef = B5F6C7AD1E5C0960007BBB88 /* Fi_Character.png */; };
 		B5F6C7B01E5C0BC5007BBB88 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = B5F6C7AF1E5C0BC5007BBB88 /* water.png */; };
 		B5FC4AD71E5A52C000339FD5 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC4AD61E5A52C000339FD5 /* SettingsScene.swift */; };
@@ -104,6 +109,11 @@
 		B5C1C49C1E6B636100C85029 /* Fi_Body5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fi_Body5.png; sourceTree = "<group>"; };
 		B5C1C49E1E6B65F900C85029 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		B5C1C4A01E6C6D2800C85029 /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightArrow.png; sourceTree = "<group>"; };
+		B5C1C4A21E6D293000C85029 /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		B5C1C4A51E6D2E3400C85029 /* Ipsi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ipsi.mp3; sourceTree = "<group>"; };
+		B5C1C4A91E6E566700C85029 /* arcade.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = arcade.mp3; sourceTree = "<group>"; };
+		B5C1C4AB1E6E593000C85029 /* fish1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish1.png; sourceTree = "<group>"; };
+		B5C1C4AD1E6E616300C85029 /* FugazOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FugazOne-Regular.ttf"; sourceTree = "<group>"; };
 		B5F6C7AD1E5C0960007BBB88 /* Fi_Character.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fi_Character.png; sourceTree = "<group>"; };
 		B5F6C7AF1E5C0BC5007BBB88 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
 		B5FC4AD61E5A52C000339FD5 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
@@ -150,6 +160,7 @@
 				14077DE71E5755AA00AF3F5B /* Classes */,
 				14077DE51E57509200AF3F5B /* Support Files */,
 				14077DE61E5750A000AF3F5B /* Images */,
+				B5C1C4A41E6D2E0C00C85029 /* Music */,
 				14077DD81E5738BF00AF3F5B /* Assets.xcassets */,
 			);
 			path = "Fi Can't Swim";
@@ -180,6 +191,7 @@
 		14077DE51E57509200AF3F5B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5C1C4A21E6D293000C85029 /* SoundPlayer.swift */,
 				B5C1C4981E6B601B00C85029 /* Characters.swift */,
 				B5C1C4941E6A4D1200C85029 /* CollisionDetection.swift */,
 				B5C1C48E1E68F2B100C85029 /* Colors.swift */,
@@ -191,6 +203,7 @@
 				B5FC4AD81E5A5C4700339FD5 /* SceneTransition.swift */,
 				B568D6141E5BF2AD00E0E79F /* DegToRadians.swift */,
 				14077DCB1E5738BF00AF3F5B /* AppDelegate.swift */,
+				B5C1C4AD1E6E616300C85029 /* FugazOne-Regular.ttf */,
 				14077DD51E5738BF00AF3F5B /* Main.storyboard */,
 				14077DDA1E5738BF00AF3F5B /* LaunchScreen.storyboard */,
 				14077DDD1E5738BF00AF3F5B /* Info.plist */,
@@ -201,6 +214,7 @@
 		14077DE61E5750A000AF3F5B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B5C1C4AB1E6E593000C85029 /* fish1.png */,
 				B5BCD23B1E6CF48C006AE8CA /* Sky.png */,
 				B5C1C48C1E68B58A00C85029 /* coin.png */,
 				B5C1C4861E67C05C00C85029 /* flag.png */,
@@ -244,6 +258,15 @@
 				B51308121E5E6D3900349C0C /* Level1.swift */,
 			);
 			name = Levels;
+			sourceTree = "<group>";
+		};
+		B5C1C4A41E6D2E0C00C85029 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				B5C1C4A91E6E566700C85029 /* arcade.mp3 */,
+				B5C1C4A51E6D2E3400C85029 /* Ipsi.mp3 */,
+			);
+			name = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,11 +339,15 @@
 				B5FC4ADF1E5B4E5500339FD5 /* Level_Icon.png in Resources */,
 				B5F6C7AE1E5C0960007BBB88 /* Fi_Character.png in Resources */,
 				B5BCD23C1E6CF48C006AE8CA /* Sky.png in Resources */,
+				B5C1C4AE1E6E635500C85029 /* FugazOne-Regular.ttf in Resources */,
 				B5C1C4841E67943000C85029 /* Fi_Body3.png in Resources */,
 				14077DD91E5738BF00AF3F5B /* Assets.xcassets in Resources */,
+				B5C1C4AA1E6E566700C85029 /* arcade.mp3 in Resources */,
 				14077DDC1E5738BF00AF3F5B /* LaunchScreen.storyboard in Resources */,
 				B5C1C49D1E6B636100C85029 /* Fi_Body5.png in Resources */,
+				B5C1C4AC1E6E593000C85029 /* fish1.png in Resources */,
 				B5C1C48D1E68B58A00C85029 /* coin.png in Resources */,
+				B5C1C4A61E6D2E3400C85029 /* Ipsi.mp3 in Resources */,
 				B5F6C7B01E5C0BC5007BBB88 /* water.png in Resources */,
 				B5C1C47E1E674ED900C85029 /* leftArrow.png in Resources */,
 				B5C1C4831E67943000C85029 /* Fi_Body2.png in Resources */,
@@ -347,6 +374,7 @@
 				B5C1C49F1E6B65F900C85029 /* Firebase.swift in Sources */,
 				14077DEB1E57577F00AF3F5B /* LevelIcon.swift in Sources */,
 				B5FC4AD71E5A52C000339FD5 /* SettingsScene.swift in Sources */,
+				B5C1C4A31E6D293000C85029 /* SoundPlayer.swift in Sources */,
 				B5C1C48B1E68B12A00C85029 /* Coin.swift in Sources */,
 				B51038CE1E5FC42800AE79E0 /* Slide.swift in Sources */,
 				B568D6131E5BE19F00E0E79F /* MapConnector.swift in Sources */,
