@@ -17,7 +17,12 @@ class Water : SKSpriteNode {
         super.init(texture: texture, color: color, size: size)
         self.texture = SKTexture(imageNamed: "water.png")
         self.size = waterSize
-        
+        self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "water.png"), size: self.size)
+        self.physicsBody?.isDynamic = false
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.usesPreciseCollisionDetection = true
+        self.physicsBody?.categoryBitMask = waterCategory
+        self.physicsBody?.contactTestBitMask = fiCategory
     }
     
     required init?(coder aDecoder: NSCoder) {

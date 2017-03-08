@@ -129,11 +129,13 @@ class MenuScene: SKScene {
             let location = touch.location(in: self)
             
             if playButton.contains(location){
+                playButtonSound()
                 //go to game scene
                 sceneTransition(initScene: self, nextScene: MapScene())
             }
             
             if settingsButton.contains(location){
+                playButtonSound()
                 //go to map scene
                 sceneTransition(initScene: self, nextScene: SettingsScene())
             }

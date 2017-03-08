@@ -10,6 +10,8 @@ import SpriteKit
 import AVFoundation
 
 var player: AVAudioPlayer?
+var buttonPlayer: AVAudioPlayer?
+var effectPlayer: AVAudioPlayer?
 var playerPlaying = false
 
 func playSound() {
@@ -31,4 +33,39 @@ func playSound() {
         print(error.localizedDescription)
     }
 }
+
+func playButtonSound() {
+    let url = Bundle.main.url(forResource: "buttonPush", withExtension: "mp3")!
+    
+    do {
+        print("launching new avaudio player")
+        buttonPlayer = try AVAudioPlayer(contentsOf: url)
+        guard let buttonPlayer = buttonPlayer else { return }
+        
+        buttonPlayer.prepareToPlay()
+        buttonPlayer.play()
+        buttonPlayer.numberOfLoops = 0
+        //playerPlaying = true
+    } catch let error {
+        print(error.localizedDescription)
+    }
+}
+func playSplashSound() {
+    let url = Bundle.main.url(forResource: "splash", withExtension: "mp3")!
+    
+    do {
+        print("launching new avaudio player")
+        effectPlayer = try AVAudioPlayer(contentsOf: url)
+        guard let effectPlayer = effectPlayer else { return }
+        
+        effectPlayer.prepareToPlay()
+        effectPlayer.play()
+        effectPlayer.numberOfLoops = 0
+        //playerPlaying = true
+    } catch let error {
+        print(error.localizedDescription)
+    }
+}
+
+
 

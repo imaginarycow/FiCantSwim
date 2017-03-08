@@ -150,6 +150,7 @@ class SettingsScene : SKScene {
             moveCharactersRight()
             currFiIndex += 1
         }
+        playButtonSound()
         //getIndexes()
         addFiSelector()
     }

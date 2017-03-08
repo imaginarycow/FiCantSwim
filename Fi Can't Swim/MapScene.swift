@@ -133,6 +133,8 @@ class MapScene : SKScene {
             //go to selected scene if it is unlocked
             for icon in levelIcons{
                 if icon.contains(location){
+                    //play sound effect
+                    playButtonSound()
                     //go to corresponding level
                     currLevel = icon.lvlNum
                     sceneTransition(initScene: self, nextScene: GameScene())

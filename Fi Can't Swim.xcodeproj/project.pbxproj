@@ -54,6 +54,18 @@
 		B5C1C4AA1E6E566700C85029 /* arcade.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4A91E6E566700C85029 /* arcade.mp3 */; };
 		B5C1C4AC1E6E593000C85029 /* fish1.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4AB1E6E593000C85029 /* fish1.png */; };
 		B5C1C4AE1E6E635500C85029 /* FugazOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4AD1E6E616300C85029 /* FugazOne-Regular.ttf */; };
+		B5C1C4B11E6F513400C85029 /* Splash.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4B01E6F513400C85029 /* Splash.sks */; };
+		B5C1C4B51E6F52A700C85029 /* Emitters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1C4B41E6F52A700C85029 /* Emitters.swift */; };
+		B5C1C4B91E6F688B00C85029 /* waterDrop.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4B81E6F688B00C85029 /* waterDrop.png */; };
+		B5C1C4BB1E6F98AA00C85029 /* fish2.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4BA1E6F98AA00C85029 /* fish2.png */; };
+		B5C1C4BD1E6F9C0800C85029 /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4BC1E6F9C0800C85029 /* bubble.png */; };
+		B5C1C4BF1E6F9C3300C85029 /* Bubble.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4BE1E6F9C3300C85029 /* Bubble.sks */; };
+		B5C1C4C11E6FA34E00C85029 /* fish3.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4C01E6FA34E00C85029 /* fish3.png */; };
+		B5C1C4C31E6FA35800C85029 /* fish4.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4C21E6FA35800C85029 /* fish4.png */; };
+		B5C1C4C61E6FA5B600C85029 /* fish6.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4C41E6FA5B600C85029 /* fish6.png */; };
+		B5C1C4C71E6FA5B600C85029 /* fish5.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4C51E6FA5B600C85029 /* fish5.png */; };
+		B5C1C4C91E6FAB4800C85029 /* buttonPush.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4C81E6FAB4800C85029 /* buttonPush.mp3 */; };
+		B5C1C4CB1E6FAD5800C85029 /* splash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B5C1C4CA1E6FAD5800C85029 /* splash.mp3 */; };
 		B5F6C7AE1E5C0960007BBB88 /* Fi_Character.png in Resources */ = {isa = PBXBuildFile; fileRef = B5F6C7AD1E5C0960007BBB88 /* Fi_Character.png */; };
 		B5F6C7B01E5C0BC5007BBB88 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = B5F6C7AF1E5C0BC5007BBB88 /* water.png */; };
 		B5FC4AD71E5A52C000339FD5 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC4AD61E5A52C000339FD5 /* SettingsScene.swift */; };
@@ -114,6 +126,18 @@
 		B5C1C4A91E6E566700C85029 /* arcade.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = arcade.mp3; sourceTree = "<group>"; };
 		B5C1C4AB1E6E593000C85029 /* fish1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish1.png; sourceTree = "<group>"; };
 		B5C1C4AD1E6E616300C85029 /* FugazOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FugazOne-Regular.ttf"; sourceTree = "<group>"; };
+		B5C1C4B01E6F513400C85029 /* Splash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Splash.sks; sourceTree = "<group>"; };
+		B5C1C4B41E6F52A700C85029 /* Emitters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emitters.swift; sourceTree = "<group>"; };
+		B5C1C4B81E6F688B00C85029 /* waterDrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waterDrop.png; sourceTree = "<group>"; };
+		B5C1C4BA1E6F98AA00C85029 /* fish2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish2.png; sourceTree = "<group>"; };
+		B5C1C4BC1E6F9C0800C85029 /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble.png; sourceTree = "<group>"; };
+		B5C1C4BE1E6F9C3300C85029 /* Bubble.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bubble.sks; sourceTree = "<group>"; };
+		B5C1C4C01E6FA34E00C85029 /* fish3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish3.png; sourceTree = "<group>"; };
+		B5C1C4C21E6FA35800C85029 /* fish4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish4.png; sourceTree = "<group>"; };
+		B5C1C4C41E6FA5B600C85029 /* fish6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish6.png; sourceTree = "<group>"; };
+		B5C1C4C51E6FA5B600C85029 /* fish5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish5.png; sourceTree = "<group>"; };
+		B5C1C4C81E6FAB4800C85029 /* buttonPush.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonPush.mp3; sourceTree = "<group>"; };
+		B5C1C4CA1E6FAD5800C85029 /* splash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = splash.mp3; sourceTree = "<group>"; };
 		B5F6C7AD1E5C0960007BBB88 /* Fi_Character.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fi_Character.png; sourceTree = "<group>"; };
 		B5F6C7AF1E5C0BC5007BBB88 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
 		B5FC4AD61E5A52C000339FD5 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
@@ -191,6 +215,7 @@
 		14077DE51E57509200AF3F5B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5C1C4AF1E6F50FA00C85029 /* SKEmitters */,
 				B5C1C4A21E6D293000C85029 /* SoundPlayer.swift */,
 				B5C1C4981E6B601B00C85029 /* Characters.swift */,
 				B5C1C4941E6A4D1200C85029 /* CollisionDetection.swift */,
@@ -214,7 +239,14 @@
 		14077DE61E5750A000AF3F5B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B5C1C4BC1E6F9C0800C85029 /* bubble.png */,
+				B5C1C4B81E6F688B00C85029 /* waterDrop.png */,
 				B5C1C4AB1E6E593000C85029 /* fish1.png */,
+				B5C1C4BA1E6F98AA00C85029 /* fish2.png */,
+				B5C1C4C01E6FA34E00C85029 /* fish3.png */,
+				B5C1C4C21E6FA35800C85029 /* fish4.png */,
+				B5C1C4C51E6FA5B600C85029 /* fish5.png */,
+				B5C1C4C41E6FA5B600C85029 /* fish6.png */,
 				B5BCD23B1E6CF48C006AE8CA /* Sky.png */,
 				B5C1C48C1E68B58A00C85029 /* coin.png */,
 				B5C1C4861E67C05C00C85029 /* flag.png */,
@@ -263,10 +295,22 @@
 		B5C1C4A41E6D2E0C00C85029 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				B5C1C4CA1E6FAD5800C85029 /* splash.mp3 */,
+				B5C1C4C81E6FAB4800C85029 /* buttonPush.mp3 */,
 				B5C1C4A91E6E566700C85029 /* arcade.mp3 */,
 				B5C1C4A51E6D2E3400C85029 /* Ipsi.mp3 */,
 			);
 			name = Music;
+			sourceTree = "<group>";
+		};
+		B5C1C4AF1E6F50FA00C85029 /* SKEmitters */ = {
+			isa = PBXGroup;
+			children = (
+				B5C1C4B41E6F52A700C85029 /* Emitters.swift */,
+				B5C1C4B01E6F513400C85029 /* Splash.sks */,
+				B5C1C4BE1E6F9C3300C85029 /* Bubble.sks */,
+			);
+			name = SKEmitters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,21 +373,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C1C4BF1E6F9C3300C85029 /* Bubble.sks in Resources */,
 				B5C1C4851E67943000C85029 /* Fi_Body4.png in Resources */,
+				B5C1C4B11E6F513400C85029 /* Splash.sks in Resources */,
 				B5C1C4A11E6C6D2800C85029 /* rightArrow.png in Resources */,
+				B5C1C4C71E6FA5B600C85029 /* fish5.png in Resources */,
 				B5C1C49B1E6B635700C85029 /* Fi_Body6.png in Resources */,
 				B51308151E5E745200349C0C /* landing1.png in Resources */,
 				14077DD71E5738BF00AF3F5B /* Main.storyboard in Resources */,
+				B5C1C4C91E6FAB4800C85029 /* buttonPush.mp3 in Resources */,
 				B5C1C4871E67C05C00C85029 /* flag.png in Resources */,
 				B51038C41E5F423200AE79E0 /* Fi_Body1.png in Resources */,
+				B5C1C4C11E6FA34E00C85029 /* fish3.png in Resources */,
 				B5FC4ADF1E5B4E5500339FD5 /* Level_Icon.png in Resources */,
 				B5F6C7AE1E5C0960007BBB88 /* Fi_Character.png in Resources */,
 				B5BCD23C1E6CF48C006AE8CA /* Sky.png in Resources */,
+				B5C1C4BB1E6F98AA00C85029 /* fish2.png in Resources */,
 				B5C1C4AE1E6E635500C85029 /* FugazOne-Regular.ttf in Resources */,
 				B5C1C4841E67943000C85029 /* Fi_Body3.png in Resources */,
 				14077DD91E5738BF00AF3F5B /* Assets.xcassets in Resources */,
+				B5C1C4BD1E6F9C0800C85029 /* bubble.png in Resources */,
+				B5C1C4C61E6FA5B600C85029 /* fish6.png in Resources */,
 				B5C1C4AA1E6E566700C85029 /* arcade.mp3 in Resources */,
+				B5C1C4CB1E6FAD5800C85029 /* splash.mp3 in Resources */,
 				14077DDC1E5738BF00AF3F5B /* LaunchScreen.storyboard in Resources */,
+				B5C1C4B91E6F688B00C85029 /* waterDrop.png in Resources */,
+				B5C1C4C31E6FA35800C85029 /* fish4.png in Resources */,
 				B5C1C49D1E6B636100C85029 /* Fi_Body5.png in Resources */,
 				B5C1C4AC1E6E593000C85029 /* fish1.png in Resources */,
 				B5C1C48D1E68B58A00C85029 /* coin.png in Resources */,
@@ -386,6 +441,7 @@
 				B5C1C48F1E68F2B100C85029 /* Colors.swift in Sources */,
 				B51038CC1E5F980A00AE79E0 /* NodePositions.swift in Sources */,
 				B5FC4AE11E5C7ADD00339FD5 /* Level.swift in Sources */,
+				B5C1C4B51E6F52A700C85029 /* Emitters.swift in Sources */,
 				14077DF11E5763BF00AF3F5B /* SetScale.swift in Sources */,
 				14077DEF1E575C8000AF3F5B /* Label.swift in Sources */,
 				14077DE91E57562B00AF3F5B /* Character.swift in Sources */,

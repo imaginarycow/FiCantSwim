@@ -33,10 +33,15 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     var catcher: SKShapeNode!
     let finishFlag = SKSpriteNode(imageNamed: "flag.png")
     var flagTouched = false
+    var leveLostCalled = false
+    
+    var splash = SKEmitterNode()
     
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        
+        leveLostCalled = false
         
         setBackground()
         buildLabels()
@@ -64,7 +69,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         addCoins()
         
         
-        
         //wait for 3 seconds, then apply force to character
         delay(delay: 3.0, closure: {
             print("applying force after delay")
@@ -79,6 +83,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
     }
     override func willMove(from view: SKView) {
+
         currFi.removeFromParent()
         self.removeAllActions()
         self.removeAllChildren()
@@ -201,7 +206,15 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
     }
     func loseLevel() {
-        sceneTransition(initScene: self, nextScene: LoseScene())
+        playSplashSound()
+        
+        currFi.removeFromParent()
+        
+        delay(delay: 2.0, closure: {
+        
+            //self.splash.resetSimulation()
+            sceneTransition(initScene: self, nextScene: LoseScene())
+        })
     }
     
     func loadWater(){
@@ -338,13 +351,27 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         }
         
         let contactPoint: CGPoint = contact.contactPoint
-        // 3
+        
+        //fi hits the water
+        if firstBody.categoryBitMask == fiCategory && secondBody.categoryBitMask == waterCategory {
+            
+            splash = prepareSplash()
+            splash.position = contactPoint
+            splash.numParticlesToEmit = 10
+            splash.alpha = 0.75
+            splash.speed = 400
+            self.addChild(splash)
+            //loseLevel()
+        }
+        
+        //fi gets a coin
         if firstBody.categoryBitMask == fiCategory && secondBody.categoryBitMask == coinCategory {
             print("Fi touched the coin")
             
             //Remove the coin in style
             removeCoinInStyle(node: secondBody.node!)
         }
+        //fi hits the flag
         if firstBody.categoryBitMask == fiCategory && secondBody.categoryBitMask == flagCategory || firstBody.categoryBitMask == flagCategory && secondBody.categoryBitMask == fiCategory {
             print("Fi touched the flag")
             
@@ -402,7 +429,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     }
     override func update(_ currentTime: TimeInterval) {
        
-        if currFi.position.y < deviceHeight * 0.1{
+        if currFi.position.y < deviceHeight * 0.1 && !leveLostCalled {
+            leveLostCalled = true
             loseLevel()
         }
         currFi.waypoints.append(currFi.position)
