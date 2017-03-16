@@ -14,14 +14,13 @@ let landingSize: CGSize = CGSize(width: 70.0, height: 20.0)
 class GameObject: SKSpriteNode {
     
     convenience init() {
-        self.init(texture: SKTexture(image: #imageLiteral(resourceName: "landing1.png")), size: CGSize(width: 10.0, height: 10.0))
+        self.init(texture: SKTexture(imageNamed: "platform1.png"), size: CGSize(width: 10.0, height: 10.0))
     }
     
     init(type: ObjectType = .unknown, texture: SKTexture?, color: UIColor = .white, size: CGSize, isDynamic:Bool = false) {
         super.init(texture: texture, color: color, size: size)
         
         if type == .character{
-            
 
         }
         else {

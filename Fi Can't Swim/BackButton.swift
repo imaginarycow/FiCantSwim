@@ -36,7 +36,7 @@ class BackButton : SKSpriteNode {
 class BackButtonLabel : Label {
     
     
-    init(label: String = "Back", fontColor: UIColor = fiColor, fontSize: CGFloat = 15.0) {
+    init(label: String = "Back", fontColor: UIColor = currColorScheme.labelColor, fontSize: CGFloat = 15.0) {
         super.init(label: label, fontColor: fontColor, fontSize: fontSize, fontName: defaultFont)
     }
     

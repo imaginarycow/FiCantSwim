@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-let curveSize = CGSize(width: characterSize.width * 0.75, height: characterSize.height * 0.75)
+let curveSize = CGSize(width: characterSize.width * 0.60, height: characterSize.height * 0.65)
 
 class Curve : SKShapeNode{
     

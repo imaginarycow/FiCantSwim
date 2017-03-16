@@ -10,7 +10,7 @@ import SpriteKit
 
 class SettingsScene : SKScene {
     
-    let title = Label(label: "Settings", fontColor: .red, fontSize: 30.0)
+    let title = Label(label: "Settings", fontColor: currColorScheme.labelColor, fontSize: 30.0)
     let leftArrow = SKSpriteNode(imageNamed: "leftArrow.png")
     let rightArrow = SKSpriteNode(imageNamed: "rightArrow.png")
     let backButton = BackButton()
@@ -48,7 +48,7 @@ class SettingsScene : SKScene {
         addFiSelector()
         addButtons()
         
-        backgroundColor = .white
+        backgroundColor = currColorScheme.secondaryColor
         title.position = TitlePosition
         title.zPosition = 10
         self.addChild(title)
@@ -116,6 +116,8 @@ class SettingsScene : SKScene {
         
         prevFi.texture = SKTexture(imageNamed: characterSkins[prevIndex])
         nextFi.texture = SKTexture(imageNamed: characterSkins[nextIndex])
+        prevFi.color = .white
+        nextFi.color = .white
         prevFi.size = FiSize
         nextFi.size = FiSize
         prevFi.position = prevPoint

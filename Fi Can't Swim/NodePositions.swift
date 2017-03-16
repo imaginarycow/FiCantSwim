@@ -16,6 +16,7 @@ let TitlePosition = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bo
 let BackButtonPosition = CGPoint(x: UIScreen.main.bounds.width * 0.1, y: UIScreen.main.bounds.height * 0.95)
 let ScoreLabelPosition = CGPoint(x: UIScreen.main.bounds.width * 0.85, y: UIScreen.main.bounds.height * 0.95)
 let LevelLabelPosition = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height * 0.95)
+let BoostButtonPosition = CGPoint(x: deviceWidth * 0.5, y: deviceHeight * 0.01 + characterSize.height/2)
 
 var startP = CGPoint()
 var catcherPosition = CGPoint()

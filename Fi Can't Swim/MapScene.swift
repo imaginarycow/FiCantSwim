@@ -10,7 +10,7 @@ import SpriteKit
 
 class MapScene : SKScene {
     
-    let title = Label(label: "Level Select", fontColor: fiColor, fontSize: 30.0)
+    let title = Label(label: "Level Select", fontColor: currColorScheme.labelColor, fontSize: 30.0)
     let backButton = BackButton()
     var levelIcons: [LevelIcon] = []
     var levelsBuilt = false
@@ -21,7 +21,7 @@ class MapScene : SKScene {
         deviceWidth = self.view!.bounds.size.width
         //backgroundColor = .white
         
-        let bg = SKSpriteNode(imageNamed: "Sky.png")
+        let bg = SKSpriteNode(imageNamed: currColorScheme.background)
         bg.size = CGSize(width: deviceWidth, height: deviceHeight)
         bg.position = centerScreen
         bg.zPosition = backgroundZPosition

@@ -21,10 +21,12 @@ class LoseScene : SKScene {
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -1.0)
         
         backgroundColor = custBlue
+        title.fontColor = currColorScheme.secondaryColor
         title.position = centerScreen
         addChild(title)
         
         playAgain.position = CGPoint(x: centerX, y: centerY - title.fontSize * 1.25)
+        playAgain.fontColor = currColorScheme.secondaryColor
         addChild(playAgain)
         
         addFish()

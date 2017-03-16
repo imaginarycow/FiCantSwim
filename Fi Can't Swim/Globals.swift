@@ -13,9 +13,10 @@ let NumberOfLevels: Int = 35
 let NumberOfIconsPerRow:CGFloat = 5
 let NumberOfRows: Int = NumberOfLevels / Int(NumberOfIconsPerRow)
 
-//max vector to be applied for boost
-let maxVector = CGVector(dx: 300.0, dy: 300.0)
+var backgroundImage: String = "Sky.png"
 
+let maxNumberBoosts = 3
+var vector: CGVector = CGVector(dx: 0.0, dy: 0.0)
 
 
 

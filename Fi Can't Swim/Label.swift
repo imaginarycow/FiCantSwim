@@ -14,7 +14,7 @@ var defaultFont = "FugazOne-Regular"
 
 class Label : SKLabelNode {
     
-    init(label:String, fontColor:UIColor = fiColor, fontSize: CGFloat, fontName: String = defaultFont) {
+    init(label:String, fontColor:UIColor = currColorScheme.labelColor, fontSize: CGFloat, fontName: String = defaultFont) {
         super.init()
         self.text = label
         self.fontColor = fontColor

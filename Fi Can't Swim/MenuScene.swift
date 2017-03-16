@@ -11,9 +11,9 @@ import GameplayKit
 
 class MenuScene: SKScene {
     
-    let label = Label(label: "Fi Can't Swim", fontColor: fiColor, fontSize: 40.0)
-    let settingsButton = Label(label: "Settings", fontColor: .white, fontSize: 30.0)
-    let playButton = Label(label: "Play", fontColor: .white, fontSize: 30.0)
+    let label = Label(label: "Fi Can't Swim", fontColor: currColorScheme.secondaryColor, fontSize: 40.0)
+    let settingsButton = Label(label: "Settings", fontColor: currColorScheme.buttonColor, fontSize: 30.0)
+    let playButton = Label(label: "Play", fontColor: currColorScheme.buttonColor, fontSize: 30.0)
     let fi = SKSpriteNode(imageNamed: characterSkins[currFiIndex])
     var showAnimation = true
     let height = deviceWidth * 0.75
@@ -91,13 +91,13 @@ class MenuScene: SKScene {
         
         playSound()
 
-        let bg = SKSpriteNode(imageNamed: "Sky.png")
+        let bg = SKSpriteNode(imageNamed: currColorScheme.background)
         bg.size = CGSize(width: deviceWidth, height: deviceHeight)
         bg.position = centerScreen
         bg.zPosition = 1
         addChild(bg)
         
-        label.position = CGPoint(x: TitlePosition.x, y: TitlePosition.y)
+        label.position = CGPoint(x: TitlePosition.x, y: centerY + 200)
         addChild(label)
         
         settingsButton.position = CGPoint(x: (self.view?.bounds.width)! / 2, y: (self.view?.bounds.height)! * 0.35)

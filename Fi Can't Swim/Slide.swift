@@ -8,10 +8,12 @@
 
 import SpriteKit
 
+let maxSlideLife = 3
 
 class Slide: SKShapeNode {
     
     var active = false
+    var counter = 0
     
     init(name: String, path: CGPath) {
         super.init()
