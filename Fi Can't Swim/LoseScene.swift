@@ -22,10 +22,12 @@ class LoseScene : SKScene {
         
         backgroundColor = custBlue
         title.fontColor = currColorScheme.secondaryColor
+        title.zPosition = 10
         title.position = centerScreen
         addChild(title)
         
         playAgain.position = CGPoint(x: centerX, y: centerY - title.fontSize * 1.25)
+        playAgain.zPosition = 10
         playAgain.fontColor = currColorScheme.secondaryColor
         addChild(playAgain)
         

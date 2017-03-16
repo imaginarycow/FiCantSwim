@@ -33,7 +33,7 @@ class Coin : SKSpriteNode {
     func addLabel(value: Int){
         let label = SKLabelNode(text: "\(value)")
         label.zPosition = coinZPosition + 1
-        label.fontSize = coinSize.width * 0.65
+        label.fontSize = coinSize.width * 0.5
         label.fontName = defaultFont
         label.fontColor = custBlue
         label.position = CGPoint(x: 0.0, y: 0.0 - label.fontSize/2)

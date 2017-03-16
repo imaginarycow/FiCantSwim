@@ -41,3 +41,30 @@ let characterZPosition:CGFloat = 5
 let slideZPosition:CGFloat = 4
 let coinZPosition:CGFloat = 5
 let platformZPosition:CGFloat = 5
+
+//Coin positions
+let coinPosition1 = CGPoint(x: deviceWidth * 0.35, y: deviceHeight * 0.80)
+let coinPosition2 = CGPoint(x: deviceWidth * 0.50, y: deviceHeight * 0.80)
+let coinPosition3 = CGPoint(x: deviceWidth * 0.75, y: deviceHeight * 0.80)
+let coinPosition4 = CGPoint(x: deviceWidth * 0.15, y: deviceHeight * 0.55)
+let coinPosition5 = CGPoint(x: deviceWidth * 0.45, y: deviceHeight * 0.55)
+let coinPosition6 = CGPoint(x: deviceWidth * 0.85, y: deviceHeight * 0.55)
+let coinPosition7 = CGPoint(x: deviceWidth * 0.20, y: deviceHeight * 0.25)
+let coinPosition8 = CGPoint(x: deviceWidth * 0.45, y: deviceHeight * 0.25)
+let coinPosition9 = CGPoint(x: deviceWidth * 0.85, y: deviceHeight * 0.25)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

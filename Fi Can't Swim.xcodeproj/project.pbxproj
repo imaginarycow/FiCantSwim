@@ -241,6 +241,7 @@
 		14077DE51E57509200AF3F5B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5C1C4AF1E6F50FA00C85029 /* SKEmitters */,
 				B5C1C4981E6B601B00C85029 /* Characters.swift */,
 				B5C1C4941E6A4D1200C85029 /* CollisionDetection.swift */,
 				B5C1C48E1E68F2B100C85029 /* Colors.swift */,
@@ -252,6 +253,7 @@
 				14077DF21E5763D700AF3F5B /* Globals.swift */,
 				B5FC4AE01E5C7ADD00339FD5 /* Level.swift */,
 				B51038CB1E5F980A00AE79E0 /* NodePositions.swift */,
+				B51038C91E5F55D100AE79E0 /* Platform.swift */,
 				14077DF01E5763BF00AF3F5B /* SetScale.swift */,
 				B5FC4AD81E5A5C4700339FD5 /* SceneTransition.swift */,
 				B5C1C4A21E6D293000C85029 /* SoundPlayer.swift */,
@@ -259,7 +261,6 @@
 				14077DDA1E5738BF00AF3F5B /* LaunchScreen.storyboard */,
 				B5C1C4AD1E6E616300C85029 /* FugazOne-Regular.ttf */,
 				14077DDD1E5738BF00AF3F5B /* Info.plist */,
-				B5C1C4AF1E6F50FA00C85029 /* SKEmitters */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -312,7 +313,6 @@
 				B51038C71E5F559700AE79E0 /* Game_Object.swift */,
 				14077DEA1E57577F00AF3F5B /* LevelIcon.swift */,
 				14077DEE1E575C8000AF3F5B /* Label.swift */,
-				B51038C91E5F55D100AE79E0 /* Platform.swift */,
 				B51038CD1E5FC42800AE79E0 /* Slide.swift */,
 				B5C1C4701E6329D200C85029 /* Water.swift */,
 			);

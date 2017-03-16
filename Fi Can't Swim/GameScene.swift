@@ -55,7 +55,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         currFi.isMoving = false
         setBackground()
         buildLabels()
-        
+        coins = []
         winTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
         
         // 1
@@ -318,12 +318,12 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     
     //Coins Add, Update, Remove
     func addCoins(){
-        coins = []
+        
+        for coin in coins {
+
+            addChild(coin)
             
-            let coin1 = Coin(value: 7)
-            coin1.position = centerScreen
-            coins.append(coin1)
-            addChild(coin1)
+        }
         
     }
     func updateCoinCount(value: Int){
